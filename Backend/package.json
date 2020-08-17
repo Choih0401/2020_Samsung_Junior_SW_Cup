@@ -1,19 +1,32 @@
 {
-  "name": "Backend",
-  "version": "1.0.0",
-  "description": "",
+  "name": "node_base",
+  "version": "0.1.0",
+  "description": "Default node server base file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Choih0401/Nodejs_Base.git"
+  },
+  "author": "w00kiki2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Choih0401/Nodejs_Base/issues"
+  },
+  "homepage": "https://github.com/Choih0401/Nodejs_Base#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "async": "^3.2.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.0"
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
   }
 }
