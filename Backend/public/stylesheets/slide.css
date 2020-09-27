@@ -1,0 +1,264 @@
+#slide * {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+#slide {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+}
+
+#slide ul {
+    width: 400%;
+    height: 100%;
+    transition: 1s;
+}
+
+#slide ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#slide li {
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+
+#slide li:nth-child(1) {
+    background: #faa;
+}
+
+#slide li:nth-child(2) {
+    background: #ffa;
+}
+
+#slide li:nth-child(3) {
+    background: #faF;
+}
+
+#slide li:nth-child(4) {
+    background: #aaf;
+}
+
+#slide input {
+    display: none;
+}
+
+#slide label {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #666;
+    background: #fff;
+    transition: 0.3s;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#slide .pos {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#pos1:checked~ul {
+    margin-left: 0%;
+}
+
+#pos2:checked~ul {
+    margin-left: -100%;
+}
+
+#pos3:checked~ul {
+    margin-left: -200%;
+}
+
+#pos4:checked~ul {
+    margin-left: -300%;
+}
+
+#pos1:checked~.pos>label:nth-child(1) {
+    background: #666;
+}
+
+#pos2:checked~.pos>label:nth-child(2) {
+    background: #666;
+}
+
+#pos3:checked~.pos>label:nth-child(3) {
+    background: #666;
+}
+
+#pos4:checked~.pos>label:nth-child(4) {
+    background: #666;
+}
+.blood-donation-box{
+
+}
+
+
+.blood-donation-item{
+    position: relative;
+    height: 200px;
+    display : block;
+    background-color: #FFF;
+    padding: 1rem !important;
+    box-sizing: border-box;
+    width: 20em;
+    z-index: 1;
+}
+.deed-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem !important;
+}
+.deed-left {
+    margin-top: 1.2rem !important;
+    float: left;
+    font-size: 0.8rem;
+    width: 50%;
+}
+.deed-right {
+    margin-top: 1.2rem !important;
+    float: right;
+    font-size: 0.8rem;
+    width: 50%;
+}
+
+/* card.html */
+body {
+    background-color: #F5F4F5;
+  }
+  
+  .columns {
+    -webkit-column-count: 3;
+    -webkit-column-gap: 2rem;
+    -moz-column-count: 3;
+    -moz-column-gap: 1.5rem;
+    padding: 1em;
+    margin: 1em;
+  }
+  
+  .cards {
+    background-color: white;
+    /*margin-bottom: 1em;*/
+    margin: 0 0.5em 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 1px 2px 3px #ccc;
+    display: block;
+    -webkit-column-break-inside: avoid;
+    transition: box-shadow ease-in-out 0.2s;
+    width : 500px;
+  }
+  
+  .cards:hover {
+    box-shadow: 2px 3px 10px #ccc;
+  }
+  
+  .card-head {
+    color: white;
+    padding-left: 1em;
+    min-height: 3em;
+    background: #b7141a;   
+    line-height: 48px;
+  }
+  
+  .card-text {
+    padding: 1em;
+  }
+  
+
+  .font_size{
+      margin-left: 1em;
+      font-size: 80%
+  }
+  .card_float{
+      float: left;
+      margin-left: 1em;
+        
+  }
+
+/*box.html*/
+
+.pink_background{
+    background-color: #ff9990
+  }
+
+.slide_box{
+    background-color: #FFF;
+    margin: auto;
+      width: 900px;
+      height: 800px;
+      border-radius: 0 10px 10px;
+      
+  }
+  .slide_image{
+      width: 400px;
+      height : 500px;
+      background-image: url(https://w.namu.la/s/30ffd10db08b78de532f538f5b2f1ec4a7ed11f2641435faa9e788a9686c3a1966c765f35aeead208bd42140ceb8d8b802f3c4f060d435a4cfb955cdf88e4786f5b2d25bde92c22bcb2742deb65be03aaa289cadd6234853d85446d74aaf9d2c);
+      
+      float : left;
+      margin-left: 2em;
+      margin-right: 2em;
+      border: #666 2px solid;
+      
+  }
+  
+  .slide_center_text{
+      margin-top: 1em;
+      text-align: center;
+      font-weight: 100;
+      letter-spacing: -0.1em
+  }
+  .slide_text{
+      line-height: 42px;
+      margin-right: 2em;
+      font-size: 100%;
+  }
+  .slide_line{
+      padding-top: 2em;
+      width: 100%;
+      text-align: center;
+      
+
+  }
+  .slide_line::after{
+    display: inline-block; 
+    margin: 0 0 3px 20px; 
+    height: 1px; content: " ";
+     text-shadow: none; 
+     background-color: #999; 
+     width: 40%;
+  }
+  .slide_line::before{
+    display: inline-block; 
+    margin: 0 20px 3px 0; 
+    height: 1px; content: " ";
+     text-shadow: none; 
+     background-color: #999; 
+     width: 40%;
+  }
+  .slide_button{
+    height: 42px;
+    width: 140px;
+    float: right;
+    background-color: white;
+    border: 0.5px solid black;  
+    margin-right: 2em;
+    margin-top: 2em;
+    font-size: 125%;
+    text-align: center;
+  }
