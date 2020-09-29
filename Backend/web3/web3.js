@@ -1,4 +1,3 @@
-const { reject, transform } = require("async");
 const Web3 = require("web3");
 const conf = require("./web3_conf");
 
