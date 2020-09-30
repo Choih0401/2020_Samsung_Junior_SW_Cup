@@ -3,8 +3,12 @@ const router = express.Router();
 const db = require("../db/db_conn")();
 const crypto = require("crypto");
 const conn = db.init();
+const web3 = require("../web3/web3");
+const BN = web3.BN;
 
 db.connect(conn);
+
+router.post("/test", (req, res) => {});
 
 router.post("/register", (req, res) => {
   if (!req.body.id || !req.body.pw) {
@@ -18,25 +22,28 @@ router.post("/register", (req, res) => {
       if (rows.length > 0) {
         return res.json({ success: false });
       }
-      let salt = crypto.randomBytes(8).toString("base64");
-      let key = crypto
-        .createHash("sha256")
-        .update(req.body.pw + salt)
-        .digest("byte");
-      let iv = crypto.randomBytes(16);
-      let BCKey = "asdf"; // later
-      let cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
-      let encBCKey = cipher.update(BCKey, "utf8", "base64");
-      encBCKey += cipher.final("base64");
+      let BCKey = crypto.randomBytes(16).toString("base64");
+      web3.createAccount(BCKey).then((addr) => {
+        web3.giveCoin(addr);
+        let salt = crypto.randomBytes(8).toString("base64");
+        let key = crypto
+          .createHash("sha256")
+          .update(req.body.pw + salt)
+          .digest("byte");
+        let iv = crypto.randomBytes(16);
+        let cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
+        let encBCKey = cipher.update(BCKey, "utf8", "base64");
+        encBCKey += cipher.final("base64");
 
-      conn.query(
-        "INSERT INTO user (id, salt, iv, encBCKey) VALUES (?, ?, ?, ?)",
-        [req.body.id, salt, iv.toString("base64"), encBCKey],
-        (err, rows, fields) => {
-          if (err) return res.status(500).json({ err: "2" });
-          return res.json({ success: true });
-        }
-      );
+        conn.query(
+          "INSERT INTO user (id, salt, iv, encBCKey, address) VALUES (?, ?, ?, ?, ?)",
+          [req.body.id, salt, iv.toString("base64"), encBCKey, addr],
+          (err, rows, fields) => {
+            if (err) return res.status(500).json({ err: "2" });
+            return res.json({ success: true });
+          }
+        );
+      });
     }
   );
 });
@@ -53,7 +60,6 @@ router.post("/login", (req, res) => {
       if (rows.length == 0) {
         return res.json({ success: false });
       }
-      let id = req.body.id;
       let salt = rows[0].salt;
       let iv = rows[0].iv;
       let encBCKey = rows[0].encBCKey;

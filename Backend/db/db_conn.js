@@ -26,4 +26,5 @@ user
   salt varchar(20)
   iv varchar(100)
   encBCKey varchar(500)
+  address varchar(500)
 */
