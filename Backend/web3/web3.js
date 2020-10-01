@@ -5,6 +5,15 @@ const conf = require("./web3_conf");
 let web3 = new Web3(new Web3.providers.HttpProvider(conf.url));
 
 module.exports = {
+  unlockAccount: (address, key, sec = 30) => {
+    return new Promise((resolve, reject) => {
+      web3.eth.personal
+        .unlockAccount(address, key, sec)
+        .then(() => resolve())
+        .catch((err) => reject(err));
+    });
+  },
+
   getBloodCerts: (fromAddress, id) => {
     return new Promise((resolve, reject) => {
       let myContract = new web3.eth.Contract(conf.abi, conf.cont_address, {
