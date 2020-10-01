@@ -5,6 +5,23 @@ const conf = require("./web3_conf");
 let web3 = new Web3(new Web3.providers.HttpProvider(conf.url));
 
 module.exports = {
+  getBloodCerts: (fromAddress, id) => {
+    return new Promise((resolve, reject) => {
+      let myContract = new web3.eth.Contract(conf.abi, conf.cont_address, {
+        fromAddress: fromAddress,
+      });
+      myContract.methods
+        .BloodCerts(id)
+        .call()
+        .then((result) => {
+          resolve(result);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }, // pass
+
   sendCoin: (from, to, value = 1000000000000000000) => {
     web3.eth
       .sendTransaction({
