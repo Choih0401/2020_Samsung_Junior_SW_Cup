@@ -1,7 +1,7 @@
 module.exports = {
   develop_addr: "0x5f6aBeCA30Bd69F5996A41828e3A546B1d45ED3A",
   url: "http://localhost:8545/",
-  cont_address: "0x6f07e3E2DeD28336935977031D98CE5d7Be11316",
+  cont_address: "0x0777955Bba97987ad359b58D7b8E7024306D175a",
   abi: [
     {
       anonymous: false,
