@@ -4,7 +4,6 @@ const db = require("../db/db_conn")();
 const crypto = require("crypto");
 const conn = db.init();
 const web3 = require("../web3/web3");
-const BN = web3.BN;
 
 db.connect(conn);
 

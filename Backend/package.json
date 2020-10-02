@@ -24,6 +24,7 @@
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "swagger-jsdoc": "^4.0.0",
