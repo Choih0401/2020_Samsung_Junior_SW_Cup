@@ -22,9 +22,11 @@ module.exports = () => {
 
 /*
 user
-  id varchar(20)
-  salt varchar(20)
-  iv varchar(100)
-  encBCKey varchar(500)
+  id varchar(20),
+  name varchar(20),
+  resident varchar(20),
+  salt varchar(20),
+  iv varchar(100),
+  encBCKey varchar(500),
   address varchar(500)
 */

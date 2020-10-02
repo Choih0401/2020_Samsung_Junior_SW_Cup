@@ -3,14 +3,9 @@ const router = express.Router();
 const path = require("path");
 const fs = require("fs");
 const apiRouter = require("./api");
-
-router.get("/", (req, res) => {
-  res.render("index", { 헌혈증: [] });
-});
-
-router.get("/login", (req, res) => {
-  res.render("login");
-});
+const loginRouter = require("./login");
+const registerRouter = require("./register");
+const indexRouter = require("./index");
 
 router.use("/public", (req, res) => {
   let p = path.join(__dirname, "../public", req.path);
@@ -28,6 +23,10 @@ router.use("/public", (req, res) => {
     res.status(404).send("Not Found");
   }
 });
+
 router.use("/api", apiRouter);
+router.use("/login", loginRouter);
+router.use("/register", registerRouter);
+router.use("/index", indexRouter);
 
 module.exports = router;
