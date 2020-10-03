@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/", router);
 
-app.listen(3000, () => {
+app.listen(80, () => {
   console.log("listening!");
 });
 
