@@ -7,19 +7,32 @@ const web3 = require("../web3/web3");
 
 db.connect(conn);
 
+getBloodCerts = async (address, result) => {
+  let bloodCerts = [];
+  for (let i = 0; i < result.length; i++) {
+    bloodCerts = bloodCerts.concat(
+      Object.assign(await web3.getBloodCerts(address, result[i]), { num: i })
+    );
+  }
+  console.log(bloodCerts);
+};
+
 router.get("/", (req, res) => {
-  res.render("index", {
-    헌혈증: [
-      {
-        이름: "이름",
-        생년월일: "생년월일",
-        헌혈종류: "헌혈종류",
-        성별: "성별",
-        헌혈일자: "헌혈일자",
-        고유번호: "고유번호",
-      },
-    ],
-  });
+  web3
+    .getCertByOwner(req.session.address, req.session.address)
+    .then((result) => {
+      getBloodCerts(req.session.address, result)
+        .then((bloodCerts) => {
+          bloodCerts = bloodCerts || [];
+          console.log("헌혈증: ", bloodCerts);
+          console.log("이름: " + req.session.name);
+          console.log("개수: " + bloodCerts.length);
+          res.render("index", {
+            헌혈증: bloodCerts,
+          });
+        })
+        .catch(console.error);
+    });
 });
 
 module.exports = router;

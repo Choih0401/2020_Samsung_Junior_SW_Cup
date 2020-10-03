@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
         );
       }
       //console.log(BCKey);
-      req.session.id = rows[0].id;
+      req.session.userid = rows[0].id;
       req.session.name = rows[0].name;
       req.session.address = rows[0].address;
       req.session.BCKey = BCKey;

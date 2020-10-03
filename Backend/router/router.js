@@ -27,6 +27,16 @@ router.use("/public", (req, res) => {
 router.use("/api", apiRouter);
 router.use("/login", loginRouter);
 router.use("/register", registerRouter);
-router.use("/index", indexRouter);
+router.use(
+  "/index",
+  (req, res, next) => {
+    if (!req.session.userid) {
+      return res.send("<script>location.href='./login';</script>");
+    } else {
+      next();
+    }
+  },
+  indexRouter
+);
 
 module.exports = router;
