@@ -7,6 +7,10 @@ const loginRouter = require("./login");
 const registerRouter = require("./register");
 const indexRouter = require("./index");
 
+router.get("/", (req, res) => {
+  res.send("<script>location.href='./index'</script>");
+});
+
 router.use("/public", (req, res) => {
   let p = path.join(__dirname, "../public", req.path);
   if (fs.existsSync(p)) {
