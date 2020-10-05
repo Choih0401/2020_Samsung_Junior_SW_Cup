@@ -38,8 +38,8 @@
     <div id="left-header">
         <div id="header-paper">
             <div class="cover">
-                <div class="small-phrases"><%= "name" %>님의 헌혈증은</div>
-                <h1 class="big-phrases align-center"><%= "9" %>개</h1>
+                <div class="small-phrases"><%= name %>님의 헌혈증은</div>
+                <h1 class="big-phrases align-center"><%=bloodCerts.length%>개</h1>
                 <div class="small-phrases align-right">입니다</div>
             </div>
         </div>
@@ -103,22 +103,22 @@
 
                         </div>
 
-                        <% if (헌혈증.length <= 6) { %>
-                        <% for (let i = 0; i < "헌혈증.length"; i++) { %>
+                        <% if (bloodCerts.length <= 6) { %>
+                        <% for (let i = 0; i < bloodCerts.length; i++) { %>
 
                         <div class="blood-donation-item">
 
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
 
                         </div>
@@ -129,14 +129,14 @@
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
                         </div>
                         <% } %>
@@ -146,20 +146,20 @@
 
 
                     <li class="slide-page">
-                        <% if (헌혈증.length <= 12) { %>
-                        <% for (let i = 6; i < "헌혈증.length"; i++) { %>
+                        <% if (bloodCerts.length <= 12) { %>
+                        <% for (let i = 6; i < bloodCerts.length; i++) { %>
                         <div class="blood-donation-item">
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
                         </div>
                         <% } %>
@@ -169,14 +169,14 @@
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
                         </div>
                         <% } %>
@@ -186,20 +186,20 @@
 
 
                     <li class="slide-page">
-                        <% if (헌혈증.length <= 18) { %>
-                        <% for (let i = 12; i < "헌혈증.length"; i++) { %>
+                        <% if (bloodCerts.length <= 18) { %>
+                        <% for (let i = 12; i < bloodCerts.length; i++) { %>
                         <div class="blood-donation-item">
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
                         </div>
                         <% } %>
@@ -209,14 +209,14 @@
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
                         </div>
                         <% } %>
@@ -226,20 +226,20 @@
 
 
                     <li class="slide-page">
-                        <% if (헌혈증.length <= 24) { %>
-                        <% for (let i = 18; i < "헌혈증.length"; i++) { %>
+                        <% if (bloodCerts.length <= 24) { %>
+                        <% for (let i = 18; i < bloodCerts.length; i++) { %>
                         <div class="blood-donation-item">
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
                         </div>
                         <% } %>
@@ -249,14 +249,14 @@
                             <div class="deed-title">헌혈증서</div>
                             <hr>
                             <div class="deed-left">
-                                성명 : <%= "헌혈증[i].이름" %><br><br>
-                                생년월일 : <%= "헌혈증[i].생년월일" %><br><br>
-                                헌혈종류 : <%= "헌혈증[i].헌혈종류" %>
+                                성명 : <%= bloodCerts[i].name %><br><br>
+                                생년월일 : <%= bloodCerts[i].birth %><br><br>
+                                헌혈종류 : <%= bloodCerts[i].kind %>
                             </div>
                             <div class="deed-right">
-                                성별 : <%= "헌혈증[i].성별" %><br><br>
-                                헌혈일자 : <%= "헌혈증[i].헌혈일자" %><br><br>
-                                고유번호 : <%= "헌혈증[i].고유번호" %>
+                                성별 : <%= bloodCerts[i].gender %><br><br>
+                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
+                                고유번호 : <%= bloodCerts[i].num %>
                             </div>
                         </div>
                         <% } %>
@@ -302,7 +302,7 @@
 
             </div>
             <!-- 이부분 fatch로 작성 -->
-            <!-- <input type="number" max="<%= 헌혈증.length + 1 %>" name="donateBloodDonation" oninput="maxLengthCheck(this)"> -->
+            <!-- <input type="number" max="<%= bloodCerts.length + 1 %>" name="donateBloodDonation" oninput="maxLengthCheck(this)"> -->
             <!-- 이거 직접 입력하면 제대로 안먹힘 -->
             <!-- <input type="button" value="기부하기"> -->
         </div>
@@ -320,7 +320,7 @@
                     기부할 헌혈증의 개수를 입력하세요
                 </p>
                 <div class="md-form-control">
-                    <input id="aaaaaaaaaaaaa" name="aaaaaaaaaaaaa" type="number" class="md-input-text" max="<%= 헌혈증.length %>"/>
+                    <input id="aaaaaaaaaaaaa" name="aaaaaaaaaaaaa" type="number" class="md-input-text" max="<%= bloodCerts.length %>"/>
                     <label for="aaaaaaaaaaaaa">개수</label>
                     <span class="md-input-text-bar"></span>
                 </div>
