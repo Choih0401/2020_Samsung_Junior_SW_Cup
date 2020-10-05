@@ -28,7 +28,8 @@ router.get("/", (req, res) => {
           console.log("이름: " + req.session.name);
           console.log("개수: " + bloodCerts.length);
           res.render("index", {
-            헌혈증: bloodCerts,
+            bloodCerts: bloodCerts,
+            name: req.session.name,
           });
         })
         .catch(console.error);
