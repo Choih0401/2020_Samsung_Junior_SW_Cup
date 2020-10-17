@@ -6,6 +6,7 @@ const apiRouter = require("./api");
 const loginRouter = require("./login");
 const registerRouter = require("./register");
 const indexRouter = require("./index");
+const adminRouter = require("./admin")
 
 router.get("/", (req, res) => {
   res.send("<script>location.href='./index'</script>");
@@ -31,6 +32,7 @@ router.use("/public", (req, res) => {
 router.use("/api", apiRouter);
 router.use("/login", loginRouter);
 router.use("/register", registerRouter);
+router.use("/admin", adminRouter);
 router.use(
   "/index",
   (req, res, next) => {
