@@ -12,19 +12,34 @@ isAdmin = (userid) => {
         conn.query("SELECT isAdmin FROM user WHERE id=?", [userid], (err, rows, fields) => {
             if(err) return resolve(false);
             if(!rows || rows.length == 0) return resolve(false);
-            console.log(rows);
             if(rows[0].isAdmin != 1) return resolve(false);
             return resolve(true);
         })
     });
 }
 
+router.get("/", (req, res) => {
+    res.render("admin");
+})
+
 // POST donateDate, birth, gender, name, kind, userid
-router.post("/generate", (req, res) => {
-    console.log(req.session)
+router.post("/", (req, res) => {
+    console.log(req.body)
     isAdmin(req.session.userid)
     .then((result) => {
         if(!result) return res.status(403).json();
+
+        try {
+            req.body.donateDate = new Date(req.body.donateDate).getTime();
+            req.body.birth = new Date(req.body.birth).getTime();
+        } catch {
+            return res.status(400).json();
+        }
+
+        if(isNaN(req.body.donateDate) || isNaN(req.body.birth) || isNaN(req.body.gender)) {
+            return res.status(400).json();
+        }
+
         conn.query("SELECT * FROM user WHERE id=?", [req.body.userid], (err, rows, fields) => {
             if(err) return res.status(500).json();
             if(!rows || rows.length == 0) return res.status(404).json();
@@ -32,9 +47,10 @@ router.post("/generate", (req, res) => {
             .then(() => {
                 web3.createCert(rows[0].address, req.body.donateDate, req.body.birth, req.body.gender, req.body.name, req.body.kind)
                 .then(() => {
-                    return res.status(200).json();
+                    return res.status(200).json({success: true});
                 })
-                .catch(() => {
+                .catch((err) => {
+                    console.log(err);
                     return res.status(500).json();
                 })
             })
