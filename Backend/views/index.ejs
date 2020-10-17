@@ -47,12 +47,12 @@
           </thead>
 
           <tbody>
-            <% for(var i=0; i< min(5, 헌혈증.Result.length);i++){ %>
-              <% var nowTime = new date(헌혈증.Result[i].donateDate*1000) %>
+            <% for(var i=0; i< Math.min(5, bloodCerts.length);i++){ %>
+              <% var nowTime = new Date(bloodCerts[i].donateDate*1000) %>
               <tr>
-                <td class="date"><% nowTime %></td>
-                <td class="team"><% 헌혈증.Result[i].kind %></td>
-                <td class="time"><% 헌혈증.Result[i].name %></td>
+                <td class="date"><%= nowTime %></td>
+                <td class="team"><%= bloodCerts[i].kind %></td>
+                <td class="time"><%= bloodCerts[i].name %></td>
               </tr>
             <% } %>
         </table>
@@ -74,12 +74,12 @@
           </thead>
 
           <tbody>
-            <% for(var i=0; i< min(5, 헌혈증.Result.length);i++){ %>
-              <% var nowTime = new date(헌혈증.Result[i].donateDate*1000) %>
+            <% for(var i=0; i< Math.min(5, bloodCerts.length);i++){ %>
+              <% var nowTime = new Date(bloodCerts[i].donateDate*1000) %>
               <tr>
-                <td class="date"><% nowTime %></td>
-                <td class="team"><% 헌혈증.Result[i].kind %></td>
-                <td class="time"><% 헌혈증.Result[i].name %></td>
+                <td class="date"><%= nowTime %></td>
+                <td class="team"><%= bloodCerts[i].kind %></td>
+                <td class="time"><%= bloodCerts[i].name %></td>
               </tr>
             <% } %>
           </tbody>
