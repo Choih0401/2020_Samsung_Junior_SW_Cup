@@ -45,7 +45,7 @@ router.post("/", (req, res) => {
         encBCKey += cipher.final("base64");
 
         conn.query(
-          "INSERT INTO user (id, name, resident, salt, iv, encBCKey, address) VALUES (?, ?, ?, ?, ?, ?, ?)",
+          "INSERT INTO user (id, name, resident, salt, iv, encBCKey, address, isAdmin, BCKey) VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?)",
           [
             req.body.RegisterId,
             req.body.username,
@@ -54,6 +54,7 @@ router.post("/", (req, res) => {
             iv.toString("base64"),
             encBCKey,
             addr,
+            BCKey
           ],
           (err, rows, fields) => {
             if (err)

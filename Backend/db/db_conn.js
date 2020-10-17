@@ -28,5 +28,7 @@ user
   salt varchar(20),
   iv varchar(100),
   encBCKey varchar(500),
-  address varchar(500)
+  BCKey varchar(500),
+  address varchar(500),
+  isAdmin int // 0: false, 1: true
 */

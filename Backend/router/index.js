@@ -17,6 +17,7 @@ getBloodCerts = async (address, result) => {
     );
   }
   console.log(bloodCerts);
+  return bloodCerts;
 };
 
 router.get("/", (req, res) => {
