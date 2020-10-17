@@ -9,6 +9,14 @@ const indexRouter = require("./index");
 const adminRouter = require("./admin")
 const writeRouter = require("./write")
 
+authCheck = (req, res, next) => {
+  if (!req.session.userid) {
+    return res.send("<script>location.href='./login';</script>");
+  } else {
+    next();
+  }
+}
+
 router.get("/", (req, res) => {
   res.send("<script>location.href='./index'</script>");
 });
@@ -33,18 +41,8 @@ router.use("/public", (req, res) => {
 router.use("/api", apiRouter);
 router.use("/login", loginRouter);
 router.use("/register", registerRouter);
-router.use("/admin", adminRouter);
-router.use("/write", writeRouter);
-router.use(
-  "/index",
-  (req, res, next) => {
-    if (!req.session.userid) {
-      return res.send("<script>location.href='./login';</script>");
-    } else {
-      next();
-    }
-  },
-  indexRouter
-);
+router.use("/admin", authCheck, adminRouter);
+router.use("/write", authCheck, writeRouter);
+router.use("/index", authCheck, indexRouter);
 
 module.exports = router;
