@@ -47,31 +47,13 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td class="date">2020.10.16</td>
-              <td class="team">전혈</td>
-              <td class="time">서울동부혈액원</td>
-            </tr>
-            <tr>
-              <td class="date">2020.10.16</td>
-              <td class="team">전혈</td>
-              <td class="time">서울동부혈액원</td>
-            </tr>
-            <tr>
-              <td class="date">2020.10.16</td>
-              <td class="team">전혈</td>
-              <td class="time">서울동부혈액원</td>
-            </tr>
-            <tr>
-              <td class="date">2020.10.16</td>
-              <td class="team">전혈</td>
-              <td class="time">서울동부혈액원</td>
-            </tr>
-            <tr>
-              <td class="date">2020.10.16</td>
-              <td class="team">전혈</td>
-              <td class="time">서울동부혈액원</td>
-            </tr>
+            <% for(var i=0; i< min(5, 헌혈증.length);i++){ %>
+              <tr>
+                <td class="date"><% 헌혈증.donateDate %></td>
+                <td class="team"><% 헌혈증.kind %></td>
+                <td class="time"><% 헌혈증.name %></td>
+              </tr>
+            <% } %>
         </table>
         <ul class="pagination justify-content-center">
           <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">모두 보기</a></li>
