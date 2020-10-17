@@ -47,11 +47,12 @@
           </thead>
 
           <tbody>
-            <% for(var i=0; i< min(5, 헌혈증.length);i++){ %>
+            <% for(var i=0; i< min(5, 헌혈증.Result.length);i++){ %>
+              <% var nowTime = new date(헌혈증.Result[i].donateDate*1000) %>
               <tr>
-                <td class="date"><% 헌혈증.donateDate %></td>
-                <td class="team"><% 헌혈증.kind %></td>
-                <td class="time"><% 헌혈증.name %></td>
+                <td class="date"><% nowTime %></td>
+                <td class="team"><% 헌혈증.Result[i].kind %></td>
+                <td class="time"><% 헌혈증.Result[i].name %></td>
               </tr>
             <% } %>
         </table>
@@ -73,11 +74,12 @@
           </thead>
 
           <tbody>
-            <% for(var i=0; i< min(5, 헌혈증.length);i++){ %>
+            <% for(var i=0; i< min(5, 헌혈증.Result.length);i++){ %>
+              <% var nowTime = new date(헌혈증.Result[i].donateDate*1000) %>
               <tr>
-                <td class="date"><% 헌혈증.donateDate %></td>
-                <td class="team"><% 헌혈증.kind %></td>
-                <td class="time"><% 헌혈증.name %></td>
+                <td class="date"><% nowTime %></td>
+                <td class="team"><% 헌혈증.Result[i].kind %></td>
+                <td class="time"><% 헌혈증.Result[i].name %></td>
               </tr>
             <% } %>
           </tbody>
