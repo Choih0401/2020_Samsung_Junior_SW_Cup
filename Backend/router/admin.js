@@ -30,8 +30,8 @@ router.post("/", (req, res) => {
         if(!result) return res.status(403).json();
 
         try {
-            req.body.donateDate = new Date(req.body.donateDate).getTime();
-            req.body.birth = new Date(req.body.birth).getTime();
+            req.body.donateDate = new Date(req.body.donateDate).getTime() / 1000;
+            req.body.birth = new Date(req.body.birth).getTime() / 1000;
         } catch {
             return res.status(400).json();
         }

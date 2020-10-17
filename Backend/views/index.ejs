@@ -78,6 +78,7 @@
 
           <tbody>
             <% for(var i=0; i< Math.min(5, bloodCerts.length);i++){ %>
+              <%= bloodCerts[i].donateDate %>
               <% var nowTime = new Date(bloodCerts[i].donateDate) %>
               <% var month = nowTime.getMonth() + 1 %>
               <% var day = nowTime.getDate() %>
