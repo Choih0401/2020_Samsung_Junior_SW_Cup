@@ -1,338 +1,188 @@
 <!DOCTYPE html>
-<html lang="ko">
-
-<!--<META HTTP-EQUIV="refresh" CONTENT="1">-->
-
+<html lang="ko" >
 <head>
-    <%- include('head') %>
-    <title>블록체인 헌혈 :: 메인</title>
-    <link rel="stylesheet" href="/public/stylesheets/slide.css">
-    <script src="/public/scripts/index.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Layer7-Bloock</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'><link rel="stylesheet" href="/public/stylesheets/style.css">
+
 </head>
-
-<body>
-    <!-- z-index: 100 -->
-    <div class="doodle-container doodle-header">
-        <css-doodle grid="8">
-            :doodle {
-            size: 100vmax;
-            background: #b7141a;
-            overflow: hidden;
-            }
-            clip-path: @shape(bean);
-            background: hsla(
-            calc(300 + 3 * @index()), 75%, 100%, @rand(.8)
-            );
-            transition: .2s ease @rand(300ms);
-            transform:
-            scale(@rand(.2, 1.5))
-            translate3d(
-            @rand(-50%, 50%),
-            @rand(-50%, 50%),
-            0
-            )
-            rotate(@rand(0deg, 360deg));
-        </css-doodle>
-    </div>
-    <!-- z-index: 200 -->
-    <div id="left-header">
-        <div id="header-paper">
-            <div class="cover">
-                <div class="small-phrases"><%= name %>님의 헌혈증은</div>
-                <h1 class="big-phrases align-center"><%=bloodCerts.length%>개</h1>
-                <div class="small-phrases align-right">입니다</div>
-            </div>
-        </div>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<!-- partial:index.partial.html -->
+<!-- /// JUMBOTRON \\\ -->
+<div class="jumbotron cd-intro">
+  <div class="container cd-intro-content mask">
+    <div class="hr animated fadeIn">
+      <b><h1 style="padding-bottom: 10vh; font-size: 6rem" data-content="BLOOCK"><span>BLOOCK.</span></h1></b>
+      <hr>
     </div>
 
+    <h1 data-content="당신의 블록체인 헌혈증 입니다."><span>당신의 블록체인 헌혈증 입니다.</span></h1>
 
-
-
-
-
-
-    <div id="index-main-contents">
-
-
-        <div id="blood-donation-list" class="flexY">
-            <div id="slide">
-                <input type="radio" name="pos" id="pos1" checked>
-                <input type="radio" name="pos" id="pos2">
-                <input type="radio" name="pos" id="pos3">
-                <input type="radio" name="pos" id="pos4">
-                <ul>
-                    <li class="slide-page">
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : 방성훈<br><br>
-                                생년월일 : 20010205<br><br>
-                                헌혈종류 : 전혈400ml
-                            </div>
-                            <div class="deed-right">
-                                성별 : 남<br><br>
-                                헌혈일자 : 20190720<br><br>
-                                고유번호 : 333
-                            </div>
-                        </div>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : 방성훈<br><br>
-                                생년월일 : 20010205<br><br>
-                                헌혈종류 : 전혈400ml
-                            </div>
-                            <div class="deed-right">
-                                성별 : 남<br><br>
-                                헌혈일자 : 20190720<br><br>
-                                고유번호 : 333
-                            </div>
-                        </div>
-                        <div class="blood-donation-item">
-
-                        </div>
-                        <div class="blood-donation-item">
-
-                        </div>
-                        <div class="blood-donation-item">
-
-                        </div>
-                        <div class="blood-donation-item">
-
-                        </div>
-
-                        <% if (bloodCerts.length <= 6) { %>
-                        <% for (let i = 0; i < bloodCerts.length; i++) { %>
-
-                        <div class="blood-donation-item">
-
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-
-                        </div>
-                        <% } %>
-                        <% } else { %>
-                        <% for (let i = 0; i < 6; i++) { %>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% } %>
-                    </li>
-
-
-
-                    <li class="slide-page">
-                        <% if (bloodCerts.length <= 12) { %>
-                        <% for (let i = 6; i < bloodCerts.length; i++) { %>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% } else { %>
-                        <% for (let i = 6; i < 12; i++) { %>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% } %>
-                    </li>
-
-
-
-                    <li class="slide-page">
-                        <% if (bloodCerts.length <= 18) { %>
-                        <% for (let i = 12; i < bloodCerts.length; i++) { %>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% } else { %>
-                        <% for (let i = 12; i < 18; i++) { %>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% } %>
-                    </li>
-
-
-
-                    <li class="slide-page">
-                        <% if (bloodCerts.length <= 24) { %>
-                        <% for (let i = 18; i < bloodCerts.length; i++) { %>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% } else { %>
-                        <% for (let i = 18; i < 24; i++) { %>
-                        <div class="blood-donation-item">
-                            <div class="deed-title">헌혈증서</div>
-                            <hr>
-                            <div class="deed-left">
-                                성명 : <%= bloodCerts[i].name %><br><br>
-                                생년월일 : <%= bloodCerts[i].birth %><br><br>
-                                헌혈종류 : <%= bloodCerts[i].kind %>
-                            </div>
-                            <div class="deed-right">
-                                성별 : <%= bloodCerts[i].gender %><br><br>
-                                헌혈일자 : <%= bloodCerts[i].donateDate %><br><br>
-                                고유번호 : <%= bloodCerts[i].num %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% } %>
-                    </li>
-                </ul>
-
-                <p class="pos">
-                    <label for="pos1"></label>
-                    <label for="pos2"></label>
-                    <label for="pos3"></label>
-                    <label for="pos4"></label>
-                </p>
-            </div>
-        </div>
-
-        <div id="donate-blood-donation">
-            <div class="slide_box">
-                <div></div>
-
-                <div class="slide_line">April 28. 2019</div>
-
-                <h2 class="slide_center_text">"복동이의 삶에 다시 뜬, 햇빛이 되어주세요!"</h2>
-                <br>
-                <div class="slide_image"></div>
-                <div class="slide_text">
-
-
-                    하지만 일본 최고의 선수들을 제치고 조선인 최초로 우승을 차지한 엄복동의 등장으로 일본의 계략은 실패로 돌아가고, 계속되는 무패행진으로 ‘민족 영웅’으로 떠오른 그의 존재에 조선
-                    전역은 들끓기
-                    시작한다.
-
-                    때맞춰 애국단의 활약까지 거세지자 위기감을 느낀 일본은 엄복동의 우승을 막고 조선인들의 사기를 꺾기 위해 최후의 자전차 대회를 개최하는데...
-
-                    일제강점기, 그 어느 때보다 뜨거웠던 한일전이 시작된다!
-                    술 한잔 마셨습니다...
-                    영화가 잘 안되도 좋습니다. 하지만 엄복동 하나만 기억해주세요 진심을 다해 전합니다.
-                    영화가 별로 일수있습니다 밤낮으로 고민하고 연기 했습니다 ...
-                    최선을 다했고 열심히 했습니다 저의 진심이 느껴지길 바랍니다 고맙습니다...
-
-                </div>
-                <button type="button" id="myBtn" class="slide_button">기부하기</button>
-
-            </div>
-            <!-- 이부분 fatch로 작성 -->
-            <!-- <input type="number" max="<%= bloodCerts.length + 1 %>" name="donateBloodDonation" oninput="maxLengthCheck(this)"> -->
-            <!-- 이거 직접 입력하면 제대로 안먹힘 -->
-            <!-- <input type="button" value="기부하기"> -->
-        </div>
+    <div class="action-wrapper">
+      <p>
+        <a href="#packages" style="text-decoration: none; color: white;" class="cd-btn main-action" role="button">헌혈증 보기</a>
+        <a href="https://www.bloodinfo.net/blood_house.do" class="cd-btn" id="btn-purchase" target="_blank" role="button">근처 헌혈의 집 찾기</a>
+      </p>
     </div>
+  </div>
+</div>
+<!-- /// END JUMBOTRON \\\ -->
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
+<!-- /// TICKET PACKAGES \\\ -->
+<div class="container-fluid wrapper-packages">
+  <section class="packages" id="packages">
+    <div class="row">
 
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-                <h1>정말로 기부하시겠습니까?</h1>
-                <form action="" method="POST">
-                <p>
-                    기부할 헌혈증의 개수를 입력하세요
-                </p>
-                <div class="md-form-control">
-                    <input id="aaaaaaaaaaaaa" name="aaaaaaaaaaaaa" type="number" class="md-input-text" max="<%= bloodCerts.length %>"/>
-                    <label for="aaaaaaaaaaaaa">개수</label>
-                    <span class="md-input-text-bar"></span>
-                </div>
-                <button type="submit" class="button-submit cursor-pointer btn material-design" data-color="#ffffff">기부하기</button>
-            </form>
-        </div>
+      <div class="col-md-6 leafs-package">
+        <h1 class="text-center">사용하지 않은 헌혈증</h1>
+        <table>
+          <thead class="table-header">
+            <tr>
+              <th class="date">헌혈일자</th>
+              <th class="team">헌혈종류</th>
+              <th class="time">혈액원명</th>
+            </tr>
+          </thead>
 
-    </div>
+          <tbody>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+        </table>
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">모두 보기</a></li>
+        </ul>
+      </div>
 
+      <div class="col-md-6 leafs-package">
+        <h1 class="text-center">기부한 헌혈증</h1>
+        <table>
 
-    <div id="토스트">최대 개수보다 많습니다</div>
+          <thead class="table-header">
+            <tr>
+              <th class="date">헌혈일자</th>
+              <th class="team">헌혈종류</th>
+              <th class="time">혈액원명</th>
+            </tr>
+          </thead>
 
+          <tbody>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+            <tr>
+              <td class="date">2020.10.16</td>
+              <td class="team">전혈</td>
+              <td class="time">서울동부혈액원</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">모두 보기</a></li>
+        </ul>
+      </div>
+
+  </section>
+</div>
+<!-- /// END TICKET PACKAGES \\\ -->
+
+<!-- /// MARLIES PACKAGES \\\ -->
+<section class="marlies-package">
+  <div class="container">
+    <h3 class="text-center wow fadeIn" data-wow-delay=".5s">헌혈증이 필요해요!!</h3>
+    <table class="table table-hover table-striped text-center" data-wow-delay=".5s" style="border: 1px solid;">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>글쓴이</th>
+          <th>조회수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td style = "cursor:pointer;" onClick = "location.href='http://naver.com'" onMouseOver = "window.status='http://naver.com'" onMouseOut = "window.status=''">Title_1</td>
+          <td>TEST</td>
+          <td>1234</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#"><</a></li>
+      <li class="page-item active"><a class="page-link" style="margin-right:5px;" href="#">1</a></li>
+      <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">2</a></li>
+      <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">3</a></li>
+      <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">4</a></li>
+      <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">5</a></li>
+      <li class="page-item disabled"><a class="page-link" style="margin-right:5px;" href="#">></a></li>
+    </ul>
+    <a class="btn btn-outline-info float-right">글쓰기</a>
+  </div>
+</section>
+<!-- /// END MARLIES PACKAGES \\\ -->
+
+<div class="break"></div>
+
+<!-- /// CALL TO ACTION \\\ -->
+<section class="text-center">
+
+  <div class="cta" id="cta">
+    <h2><small>지금까지 총</small> 1,652,132,780 <small>명이 블록체인 헌혈증을 사용하고 있습니다.</small></h2><br>
+    <a style="text-decoration: none; color: white;" href="" class="cta-btn wow fadeInDown" data-wow-delay="1s" data-wipe="카카오톡 플러스 친구 추가하기" target="_blank" role="button">카카오톡 플러스 친구 추가하기</a>
+  </div>
+
+</section>
+<!-- /// END CALL TO ACTION \\\ -->
+
+<footer>
+    <p class="text-center"><a href="http://layer7.kr" style="color:aliceblue; opacity: 0.7;" target="_blank">&copy; Team Layer7</a></p>
+</footer>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
+<script src="/public/scripts/script.js"></script>
 </body>
-
 </html>

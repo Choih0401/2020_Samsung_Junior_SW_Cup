@@ -7,6 +7,10 @@ const web3 = require("../web3/web3");
 
 db.connect(conn);
 
+router.get("/", (req, res) => {
+  res.render("register");
+});
+
 router.post("/", (req, res) => {
   if (
     !req.body.RegisterId ||

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+  <meta charset="UTF-8">
+  <title>Layer7-Bloock</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'><link rel="stylesheet" href="/public/stylesheets/style.css">
+
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<!-- partial:index.partial.html -->
+<!-- /// JUMBOTRON \\\ -->
+<div class="jumbotron cd-intro">
+  <div class="container cd-intro-content mask">
+    <div class="hr animated fadeIn">
+      <b><h1 style="padding-bottom: 10vh; font-size: 6rem" data-content="BLOOCK"><span>BLOOCK.</span></h1></b>
+      <hr>
+    </div>
+
+    <h1 data-content="당신의 블록체인 헌혈증 입니다."><span>당신의 블록체인 헌혈증 입니다.</span></h1>
+  </div>
+</div>
+<!-- /// END JUMBOTRON \\\ -->
+
+<section class="marlies-package">
+  <div class="container">
+    <h3 class="text-center wow fadeIn" data-wow-delay=".5s">글쓰기</h3>
+    <form action="/posts" method="post">
+    
+        <div class="form-group">
+          <label for="title">제목</label>
+          <input type="text" id="title" name="title" value="" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="InputSubject1">사진첨부</label>
+            <input id="fileInput" filestyle="" type="file" data-class-button="btn bt
+               n-default" data-class-input="form-control" data-button-text="" data-icon-name="fa
+               fa-upload" class="form-control" tabindex="-1" style="opacity:0; display: none">
+            <div class="bootstrap-filestyle input-group">
+               <input type="text" id="userfile" class="form-control" name="use
+                  rfile" disabled="">
+               <span class="group-span-filestyle input-group-btn" tabindex="0"
+                  >
+               <label for="fileInput" class="btn btn-default">사진 선택</label>
+               <span class="glyphicon fa fa-upload"></span>
+               </label>
+               </span>
+            </div>
+         </div>
+        
+        <div class="form-group">
+          <label for="body">내용</label>
+          <textarea id="body" name="body" rows="5" class="form-control"></textarea>
+        </div>
+
+        <div>
+            <a class="btn btn-outline-info float-right" style="margin-left:5px;">저장하기</a>
+            <a class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
+        </div>
+
+      </form>
+  </div>
+</section>
+<!-- /// END MARLIES PACKAGES \\\ -->
+
+<div class="break"></div>
+
+<!-- /// CALL TO ACTION \\\ -->
+<section class="text-center">
+
+  <div class="cta" id="cta">
+    <h2><small>지금까지 총</small> 1,652,132,780 <small>명이 블록체인 헌혈증을 사용하고 있습니다.</small></h2><br>
+    <a style="text-decoration: none; color: white;" href="" class="cta-btn wow fadeInDown" data-wow-delay="1s" data-wipe="카카오톡 플러스 친구 추가하기" target="_blank" role="button">카카오톡 플러스 친구 추가하기</a>
+  </div>
+
+</section>
+<!-- /// END CALL TO ACTION \\\ -->
+
+<footer>
+    <p class="text-center"><a href="http://layer7.kr" style="color:aliceblue; opacity: 0.7;" target="_blank">&copy; Team Layer7</a></p>
+</footer>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/public/scripts/script.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $("#fileInput").on('change', function(){ // 값이 변경되면
+    if(window.FileReader){ // modern browser
+    var filename = $(this)[0].files[0].name;
+    } else { // old IE
+    var filename = $(this).val().split('/').pop().split(
+    '\\').pop(); // 파일명만 추출
+    }
+    // 추출한 파일명 삽입
+    $("#userfile").val(filename);
+    });
+    });
+ </script>
+</body>
+</html>
+
+

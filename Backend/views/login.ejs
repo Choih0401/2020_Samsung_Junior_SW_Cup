@@ -1,170 +1,54 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <%- include('head') %>
-    <title>블록체인 헌혈 :: 대문</title>
-    <script src="/public/scripts/login.js" defer></script>
-  </head>
+<html lang="ko" >
+<head>
+  <meta charset="UTF-8">
+  <title>Layer7-Bloock</title>
+  <link rel="stylesheet" href="/public/stylesheets/login.css">
 
-  <body class="accurate-screen-size">
-    <div class="doodle-container">
-      <css-doodle grid="7">
-        :doodle { size: 100vmax; background: #b7141a; overflow: hidden; }
-        clip-path: @shape(bean); background: hsla( calc(300 + 3 * @index()),
-        75%, 100%, @rand(.8) ); transition: .2s ease @rand(300ms); transform:
-        scale(@rand(.2, 1.5)) translate3d( @rand(-50%, 50%), @rand(-50%, 50%), 0
-        ) rotate(@rand(0deg, 360deg));
-      </css-doodle>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="page">
+  <div class="container">
+    <div class="left">
+      <div class="login">Login</div>
+      <div class="eula">당신의 블록체인 헌혈증이 당신의 나눔을 더욱 안전하게 보관합니다.<br>이제 분실하고 파손되는 물리적 헌혈증을 받지 마세요!<br>계정이 없나요? <a class="user" href="./register">계정 만들기</a></div>
     </div>
-
-    <div class="flexY XYfull">
-      <div id="main-door">
-        <div class="cover">
-          <h1 id="open-phrases">당신의 <br />블록체인 <br />헌혈증 입니다</h1>
-          <div class="sub-phrases">
-            당신의 블록체인 헌혈증이 당신의 나눔을 더욱 안전하게 보관합니다<br />
-            이제 분실하고 파손되는 물리적 헌혈증을 받지 마세요!
-          </div>
-
-          <button
-            id="entrance-button"
-            class="cursor-pointer material-design"
-            data-color="#ff1418"
-          >
-            들어가기
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="login-door" class="flexY">
-      <!-- 로그인 폼 -->
-      <form id="login-form" class="display-none" action="/login" method="POST">
-        <h1 class="login-phrases">로그인</h1>
-
-        <div class="md-form-control">
-          <input
-            id="LoginId"
-            name="LoginId"
-            type="text"
-            class="md-input-text"
-          />
-          <label for="LoginId">ID</label>
-          <span class="md-input-text-bar"></span>
-        </div>
-
-        <div class="md-form-control">
-          <input
-            id="LoginPasswd"
-            name="LoginPasswd"
-            type="password"
-            class="md-input-text"
-          />
-          <label for="LoginPasswd">Password</label>
-          <span class="md-input-text-bar"></span>
-        </div>
-
-        <button
-          type="submit"
-          class="button-submit cursor-pointer btn material-design"
-          data-color="#ffffff"
-        >
-          로그인
-        </button>
-
-        <div id="to-join-button" class="to-join-button cursor-pointer">
-          🤔 회원가입
-        </div>
-      </form>
-
-      <!-- 회원가입 폼 -->
-      <form
-        id="join-form"
-        class="display-none"
-        action="/register"
-        method="POST"
-      >
-        <h1 class="login-phrases">회원가입</h1>
-
-        <div class="md-form-control">
-          <input
-            id="RegisterId"
-            name="RegisterId"
-            type="text"
-            class="md-input-text"
-          />
-          <label for="RegisterId">ID</label>
-          <span class="md-input-text-bar"></span>
-        </div>
-
-        <div class="md-form-control">
-          <input
-            id="RegisterPasswd"
-            name="RegisterPasswd"
-            type="password"
-            class="md-input-text"
-          />
-          <label for="RegisterPasswd">Password</label>
-          <span class="md-input-text-bar"></span>
-        </div>
-
-        <div id="RegisterConfirmPasswdCover" class="md-form-control">
-          <input
-            id="RegisterConfirmPasswd"
-            type="password"
-            class="md-input-text"
-          />
-          <label for="RegisterConfirmPasswd">Confirm Password</label>
-          <span class="md-input-text-bar"></span>
-        </div>
-
-        <div class="md-form-control">
-          <input
-            id="username"
-            name="username"
-            type="text"
-            class="md-input-text"
-          />
-          <label for="username">Name</label>
-          <span class="md-input-text-bar"></span>
-        </div>
-
-        <div class="md-form-control">
-          <input
-            id="resident"
-            name="resident"
-            type="text"
-            class="md-input-text"
-            maxlength="7"
-          />
-          <label for="resident">주민등록번호 앞자리6개 뒷자리1개</label>
-          <span class="md-input-text-bar"></span>
-        </div>
-
-        <button
-          type="submit"
-          class="button-submit cursor-pointer btn material-design"
-          data-color="#ffffff"
-        >
-          회원가입
-        </button>
-
-        <div id="to-login-button" class="to-login-button cursor-pointer">
-          😎 로그인
-        </div>
-
-        <!-- 아이디 -->
-        <!-- <input type="text" name="RegisterId"> -->
-        <!-- 비밀번호 -->
-        <!-- <input type="password" name="RegisterPasswd"> -->
-        <!-- 비밀번호 확인 -->
-        <!-- <input type="password"> -->
-        <!-- 이름 -->
-        <!-- <input type="text" name="username"> -->
-        <!-- 주민등록번호 앞자리6개 뒷자리1개 -->
-        <!-- <input type="number" name="resident"> -->
-        <!-- <input type="submit"> -->
+    <div class="right">
+      <svg viewBox="0 0 320 300">
+        <defs>
+          <linearGradient
+                          inkscape:collect="always"
+                          id="linearGradient"
+                          x1="13"
+                          y1="193.49992"
+                          x2="307"
+                          y2="193.49992"
+                          gradientUnits="userSpaceOnUse">
+            <stop
+                  style="stop-color:#ff00ff;"
+                  offset="0"
+                  id="stop876" />
+            <stop
+                  style="stop-color:#ff0000;"
+                  offset="1"
+                  id="stop878" />
+          </linearGradient>
+        </defs>
+        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
+      </svg>
+      <form method="POST" class="form">
+        <label for="LoginId">Email</label>
+        <input type="email" id="LoginId" name="LoginId">
+        <label for="LoginPasswd">Password</label>
+        <input type="password" id="LoginPasswd" name="LoginPasswd">
+        <input type="submit" id="submit" value="로그인">
       </form>
     </div>
-    <div id="inconsistency-toast">비밀번호가 일치하지 않습니다.</div>
-  </body>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js'></script><script  src="/public/scripts/login.js"></script>
+
+</body>
 </html>
