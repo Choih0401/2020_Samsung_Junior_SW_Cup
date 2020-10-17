@@ -49,8 +49,11 @@
           <tbody>
             <% for(var i=0; i< Math.min(5, bloodCerts.length);i++){ %>
               <% var nowTime = new Date(bloodCerts[i].donateDate*1000) %>
+              <% var month = nowTime.getMonth() + 1 %>
+              <% var day = nowTime.getDate() %>
+              <% var year = nowTime.getFullYear() %>
               <tr>
-                <td class="date"><%= nowTime %></td>
+                <td class="date"><%= year + "-" + month + "-" + day %></td>
                 <td class="team"><%= bloodCerts[i].kind %></td>
                 <td class="time"><%= bloodCerts[i].name %></td>
               </tr>
@@ -76,8 +79,11 @@
           <tbody>
             <% for(var i=0; i< Math.min(5, bloodCerts.length);i++){ %>
               <% var nowTime = new Date(bloodCerts[i].donateDate*1000) %>
+              <% var month = nowTime.getMonth() + 1 %>
+              <% var day = nowTime.getDate() %>
+              <% var year = nowTime.getFullYear() %>
               <tr>
-                <td class="date"><%= nowTime %></td>
+                <td class="date"><%= year + "-" + month + "-" + day %></td>
                 <td class="team"><%= bloodCerts[i].kind %></td>
                 <td class="time"><%= bloodCerts[i].name %></td>
               </tr>
