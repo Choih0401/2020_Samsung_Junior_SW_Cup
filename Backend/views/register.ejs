@@ -2,6 +2,7 @@
 <html lang="ko" >
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layer7-Bloock</title>
   <link rel="stylesheet" href="/public/stylesheets/register.css">
 
@@ -12,7 +13,7 @@
   <div class="container">
     <div class="left">
       <div class="login">Register</div>
-      <div class="eula">당신의 블록체인 헌혈증이 당신의 나눔을 더욱 안전하게 보관합니다.<br>이제 분실하고 파손되는 물리적 헌혈증을 받지 마세요!<br>계정이 이미 있나요? <a class="user" href="./login">로그인 하기</a></div>
+      <div class="eula">당신의 블록체인 헌혈증이 당신의 나눔을 더욱 안전하게 보관합니다.<br>이제 분실하고 파손되는 물리적 헌혈증을 받지 마세요!<br>계정이 이미 있나요? <a class="user" href="./login.html">로그인 하기</a></div>
     </div>
     <div class="right">
       <svg viewBox="0 0 320 300" class="one">
@@ -81,17 +82,17 @@
         </defs>
         <path class='three' d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
       </svg>
-      <form method="POST" class="form">
+      <div class="form">
         <label for="LoginId">Email</label>
-        <input type="email" id="LoginId" name="RegisterId">
+        <input type="email" id="LoginId">
         <label for="LoginPasswd">Password</label>
-        <input type="password" id="LoginPasswd" name="RegisterPasswd">
+        <input type="password" id="LoginPasswd">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username">
         <label for="resident">주민등록번호 (앞 6자리와 뒤 1자리)</label>
-        <input type="text" id="resident" name="resident">
-        <input type="submit" id="submit" value="회원가입">
-      </form>
+        <input type="text" id="resident">
+        <input type="submit" id="submit" value="로그인">
+      </div>
     </div>
   </div>
 </div>
