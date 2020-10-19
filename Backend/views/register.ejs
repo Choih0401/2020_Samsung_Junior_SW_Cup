@@ -82,17 +82,17 @@
         </defs>
         <path class='three' d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
       </svg>
-      <div class="form">
+      <form method="POST" class="form">
         <label for="LoginId">Email</label>
-        <input type="email" id="LoginId">
+        <input type="email" id="LoginId" name="RegisterId">
         <label for="LoginPasswd">Password</label>
-        <input type="password" id="LoginPasswd">
+        <input type="password" id="LoginPasswd" name="RegisterPasswd">
         <label for="username">Username</label>
-        <input type="text" id="username">
+        <input type="text" id="username" name="username">
         <label for="resident">주민등록번호 (앞 6자리와 뒤 1자리)</label>
-        <input type="text" id="resident">
+        <input type="text" id="resident" name="resident">
         <input type="submit" id="submit" value="회원가입">
-      </div>
+      </form>
     </div>
   </div>
 </div>
