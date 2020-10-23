@@ -1,7 +1,7 @@
 module.exports = {
-  host: "localhost",
+  host: "192.168.43.44",
   port: 3306,
-  user: "samsung",
+  user: "bloock",
   password: "th15_15_s4f3_p4ssw0rd!",
-  database: "samsung",
+  database: "bloock",
 };
