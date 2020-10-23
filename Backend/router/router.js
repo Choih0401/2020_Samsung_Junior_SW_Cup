@@ -18,7 +18,7 @@ authCheck = (req, res, next) => {
 }
 
 router.get("/", (req, res) => {
-  res.send("<script>location.href='./index'</script>");
+  res.send("<script>location.href='/index'</script>");
 });
 
 router.use("/public", (req, res) => {

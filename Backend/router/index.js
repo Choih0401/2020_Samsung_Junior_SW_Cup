@@ -21,19 +21,28 @@ getBloodCerts = async (address, result) => {
 };
 
 router.get("/", (req, res) => {
+  res.send("<script>location.href='/index/1';</script>")
+})
+
+router.get("/:num", (req, res) => {
   web3
     .getCertByOwner(req.session.address, req.session.address)
     .then((result) => {
       getBloodCerts(req.session.address, result)
         .then((bloodCerts) => {
-          bloodCerts = bloodCerts || [];
-          console.log("헌혈증: ", bloodCerts);
-          console.log("이름: " + req.session.name);
-          console.log("개수: " + bloodCerts.length);
-          res.render("index", {
-            bloodCerts: bloodCerts,
-            name: req.session.name,
-          });
+          conn.query("SELECT num, title, name FROM board ORDER BY num DESC", [], (err, rows, fields) => {
+            if(err) return res.status(500).json();
+            bloodCerts = bloodCerts || [];
+            console.log("헌혈증: ", bloodCerts);
+            console.log("이름: " + req.session.name);
+            console.log("개수: " + bloodCerts.length);
+            res.render("index", {
+              bloodCerts: bloodCerts,
+              name: req.session.name,
+              page: req.params.num,
+              board: rows
+            });
+          })
         })
         .catch(console.error);
     });
