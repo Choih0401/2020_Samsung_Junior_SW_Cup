@@ -1,6 +1,6 @@
 module.exports = {
   develop_addr: "0x5f6aBeCA30Bd69F5996A41828e3A546B1d45ED3A",
-  url: "http://192.168.43.44:8545/",
+  url: "http://110.9.51.75:8545/",
   cont_address: "0xcbc4ab3b53d61d3abe2A27098f359750Ad091456",
   abi: [
     {
