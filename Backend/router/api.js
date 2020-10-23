@@ -32,9 +32,6 @@ router.post("/test", (req, res) => {});
 
 router.post("/board", upload, (req, res) => {
   req.body.title, req.body.content
-  if(!authCheck(req)) {
-    return res.status(403).json();
-  }
   if(!req.body.title || !req.body.content) {
     return res.json({success: false});
   }
@@ -46,7 +43,8 @@ router.post("/board", upload, (req, res) => {
   } else {
     conn.query("INSERT INTO board (id, name, title, content) VALUES (?, ?, ?, ?)", [req.session.userid, req.session.name, req.body.title, req.body.content], (err, rows, fields) => {
       if(err) return res.status(500).json({success: false, err: 1});
-      return res.status(200).json({success: true})
+      res.redirect('/');
+      //return res.status(200).json({success: true})
     })
   }
 })
@@ -59,7 +57,8 @@ router.get("/board/:num", (req, res) => {
     if(rows.length == 0) {
       return res.status(404).json();
     }
-    return res.status(200).json(rows[0]);
+    res.render('read', {board: rows[0]});
+    //return res.status(200).json(rows[0]);
   })
 })
 

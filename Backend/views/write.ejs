@@ -26,7 +26,7 @@
 <section class="marlies-package">
   <div class="container">
     <h3 class="text-center wow fadeIn" data-wow-delay=".5s">글쓰기</h3>
-    <form action="/posts" method="post">
+    <form action="/api/board" method="post">
     
         <div class="form-group">
           <label for="title">제목</label>
@@ -52,12 +52,12 @@
         
         <div class="form-group">
           <label for="body">내용</label>
-          <textarea id="body" name="body" rows="5" class="form-control"></textarea>
+          <textarea id="content" name="content" rows="5" class="form-control"></textarea>
         </div>
 
         <div>
-            <a class="btn btn-outline-info float-right" style="margin-left:5px;">저장하기</a>
-            <a class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
+            <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px;">등록하기</button>
+            <a href="javascript.history.back()" class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
         </div>
 
       </form>

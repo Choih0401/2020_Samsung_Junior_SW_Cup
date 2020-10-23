@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+  <meta charset="UTF-8">
+  <title>Layer7-Bloock</title>
+  <link rel="stylesheet" href="/public/stylesheets/read.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'><link rel="stylesheet" href="/public/stylesheets/style.css">
+
+</head>
+<body>
+<div  id="plate">
+  <h1 class="text-center name"><%= board.title %></h1>
+  <!--
+  <h3 class="text-center subName">| <a href="https://en.wikipedia.org/wiki/Elon_Musk#Zip2" target="_blank">Zip2</a> | <a href="https://en.wikipedia.org/wiki/PayPal" target="_blank">PayPal</a> | <a href="http://www.spacex.com/" target="_blank">SpaceX</a> | <a href="https://www.teslamotors.com/" target="_blank">Tesla</a> | <a href="http://www.solarcity.com/" target="_blank">SolarCity</a> | <a href="https://en.wikipedia.org/wiki/Hyperloop" target="_blank">Hyperloop</a> | <a href="https://www.wired.com/2016/04/openai-elon-musk-sam-altman-plan-to-set-artificial-intelligence-free/" target="_blank">Open AI</a> | </h3>
+-->
+  <div id="innerPlate">
+    <div id="elonElement" class="centerImage">
+      <img id="elonMusk" src="http://i.huffpost.com/gen/1318605/thumbs/o-BORED-ELON-MUSK-facebook.jpg" alt="Elon Musk Thinking">
+    </div>
+    <div id="elonText">
+    	<%= board.content %>
+    </div>
+    <a class="btn btn-outline-info float-right">글쓰기</a>
+  </div> 
+<p class="text-center">Tribute to Elon Musk created by <a href="http://www.scottheron.xyz" target="_blank">Scott Heron</a>, contents came from Wikipedia.</p>
+</div>
+</body>
+</html>
