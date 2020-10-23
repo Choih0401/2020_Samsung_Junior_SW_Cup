@@ -28,6 +28,7 @@ router.get("/:num", (req, res) => {
   web3
     .getCertByOwner(req.session.address, req.session.address)
     .then((result) => {
+      console.log(result)
       getBloodCerts(req.session.address, result)
         .then((bloodCerts) => {
           conn.query("SELECT num, title, name FROM board ORDER BY num DESC", [], (err, rows, fields) => {

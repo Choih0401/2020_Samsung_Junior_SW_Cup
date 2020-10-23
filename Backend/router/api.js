@@ -36,12 +36,12 @@ router.post("/board", upload, (req, res) => {
     return res.json({success: false});
   }
   if(req.file) {
-    conn.query("INSERT INTO board (id, name, title, content, img) VALUES (?, ?, ?, ?, ?)", [req.session.userid, req.session.name, req.body.title, req.body.content, req.file.filename], (err, rows, fields) => {
+    conn.query("INSERT INTO board (id, name, title, content, img, active) VALUES (?, ?, ?, ?, ?, 1)", [req.session.userid, req.session.name, req.body.title, req.body.content, req.file.filename], (err, rows, fields) => {
       if(err) return res.status(500).json({success: false, err: 1});
       return res.status(200).json({success: true})
     })
   } else {
-    conn.query("INSERT INTO board (id, name, title, content) VALUES (?, ?, ?, ?)", [req.session.userid, req.session.name, req.body.title, req.body.content], (err, rows, fields) => {
+    conn.query("INSERT INTO board (id, name, title, content, active) VALUES (?, ?, ?, ?, 1)", [req.session.userid, req.session.name, req.body.title, req.body.content], (err, rows, fields) => {
       if(err) return res.status(500).json({success: false, err: 1});
       res.redirect('/');
       //return res.status(200).json({success: true})
