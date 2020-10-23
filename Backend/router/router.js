@@ -11,7 +11,7 @@ const writeRouter = require("./write")
 
 authCheck = (req, res, next) => {
   if (!req.session.userid) {
-    return res.send("<script>location.href='./login';</script>");
+    return res.send("<script>location.href='/login';</script>");
   } else {
     next();
   }

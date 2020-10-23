@@ -31,7 +31,7 @@ module.exports = {
     });
   }, // pass
 
-  sendCoin: (from, to, value = 1000000000000000000) => {
+  sendCoin: (from, to, value = 100000000000000000000) => {
     web3.eth
       .sendTransaction({
         from: from,
