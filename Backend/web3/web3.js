@@ -31,6 +31,18 @@ module.exports = {
     });
   }, // pass
 
+  use: (from, tokenId) => {
+    web3.eth
+      .use({
+        from: from,
+        _tokenId: tokenId
+      })
+      .on("transactionHash", console.log)
+      .on("receipt", console.log)
+      .on("confirmation", console.log)
+      .on("error", console.error);
+  }, // pass
+
   sendCoin: (from, to, value = 100000000000000000000) => {
     web3.eth
       .sendTransaction({
