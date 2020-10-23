@@ -28,7 +28,12 @@ authCheck = (req) => {
   }
 }
 
-router.post("/test", (req, res) => {});
+router.get("/test", (req, res) => {
+  web3.unlockAccount(req.session.address, req.session.BCKey)
+  .then(() => {
+    web3.use(req.session.address, "1")
+  });
+});
 
 router.post("/board", upload, (req, res) => {
   req.body.title, req.body.content

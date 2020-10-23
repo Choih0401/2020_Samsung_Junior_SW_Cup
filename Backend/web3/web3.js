@@ -31,16 +31,21 @@ module.exports = {
     });
   }, // pass
 
-  use: (from, tokenId) => {
-    web3.eth
-      .use({
-        from: from,
-        _tokenId: tokenId
-      })
-      .on("transactionHash", console.log)
-      .on("receipt", console.log)
-      .on("confirmation", console.log)
-      .on("error", console.error);
+  use: (fromAddress, tokenId) => {
+    return new Promise((resolve, reject) => {
+      let myContract = new web3.eth.Contract(conf.abi, conf.cont_address, {
+        fromAddress: fromAddress,
+      });
+      myContract.methods
+        .bloockUse(tokenId)
+        .send({ from: fromAddress })
+        .on("confirmation", () => {
+          return resolve();
+        })
+        .catch((err) => {
+          return reject(err);
+        });
+    })
   }, // pass
 
   sendCoin: (from, to, value = 100000000000000000000) => {
