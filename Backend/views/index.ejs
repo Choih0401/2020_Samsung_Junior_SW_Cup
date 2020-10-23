@@ -117,7 +117,7 @@
       	<tbody>
       		<tr>
       			<td><%= i + 1 %></td>
-      			<td style = "cursor:pointer;" onClick = "location.href='../api/board/' + '<%= board.length - i %>' " onMouseOver = "window.status='http://naver.com'" onMouseOut = "window.status=''"><%= board[i].title %></td>
+      			<td style = "cursor:pointer;" onClick = "location.href='../api/board' + <%= board[i].num %>' " onMouseOver = "window.status='http://naver.com'" onMouseOut = "window.status=''"><%= board[i].title %></td>
       			<td><%= board[i].name %></td>
       		</tr>
       	</tbody>
