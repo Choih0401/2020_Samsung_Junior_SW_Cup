@@ -49,7 +49,7 @@
           <tbody>
             <% for(var i=0; i< Math.min(5, bloodCerts.length);i++){ %>
               <% if(bloodCerts[i].used) continue; %>
-              <% var nowTime = new Date(Number(bloodCerts[i].donateDate)) %>
+              <% var nowTime = new Date(Number(bloodCerts[i].donateDate)*1000) %>
               <% var month = nowTime.getMonth() + 1 %>
               <% var day = nowTime.getDate() %>
               <% var year = nowTime.getFullYear() %>
@@ -80,7 +80,7 @@
           <tbody>
             <% for(var i=0; i< Math.min(5, bloodCerts.length);i++){ %>
               <% if(!bloodCerts[i].used) continue; %>
-              <% var nowTime = new Date(Number(bloodCerts[i].donateDate)) %>
+              <% var nowTime = new Date(Number(bloodCerts[i].donateDate)*1000) %>
               <% var month = nowTime.getMonth() + 1 %>
               <% var day = nowTime.getDate() %>
               <% var year = nowTime.getFullYear() %>
