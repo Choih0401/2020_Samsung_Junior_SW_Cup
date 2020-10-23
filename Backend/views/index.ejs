@@ -124,7 +124,7 @@
       <% } %>
     </table>
     <ul class="pagination justify-content-center">
-    	<% for(var i = 1; i <= board.length/5+1; i++) { %>
+    	<% for(var i = 1; i <= board.length/5+(board.length%5!=0); i++) { %>
     		<% if(i==page) { %>
     			<li class="page-item active"><a class="page-link" style="margin-right:5px;" href="#"><%= i %></a></li>
     		<% } else { %>
