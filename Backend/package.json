@@ -4,7 +4,8 @@
   "description": "Default node server base file",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "geth --rpc --rpcaddr '0.0.0.0' --rpccorsdomain='http://localhost:8080' --rpcapi web3,eth,debug,personal,net --vmdebug --datadir ~/Blockchain --allow-insecure-unlock --dev console | node server.js",
+    "node": "node server.js"
   },
   "repository": {
     "type": "git",
