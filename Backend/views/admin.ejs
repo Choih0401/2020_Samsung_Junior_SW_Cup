@@ -29,7 +29,7 @@
           <thead>
             <tr>
               <th>이름</th>
-              <th>성별</th>
+              <th>닉네임</th>
               <th>이메일</th>
               <th></th>
             </tr>
@@ -41,23 +41,24 @@
           <tbody>
             <tr>
               <td>김개똥</td>
-              <td>male</td>
+              <td>개똥이</td>
               <td>gaeddong@gmail.com</td>
               <td>
                 <input type="text" id="cnt" name="cnt" vlaue="" class="form-control">
                 <button type="submit" class="edit-button">추가</button>
               </td>
             </tr>
-            <tr>
-              <td>김개똥</td>
-              <td>male</td>
-              <td>gaeddong@gmail.com</td>
-            </tr>
-            <tr>
-              <td>김개똥</td>
-              <td>male</td>
-              <td>gaeddong@gmail.com</td>
-            </tr>
+            <%= for(var i=0; i< user.length; i++) { %>
+              <tr>
+                <td><%= user[i].name %></td>
+                <td><%= user[i].id %></td>
+                <td><%= user[i].address %></td>
+                <td>
+                  <input type="text" id="cnt<%= i %>" name="cnt" vlaue="" class="form-control">
+                  <button type="submit" class="edit-button">추가</button>
+                </td>
+              </tr>
+            <% } %>
           </tbody>
         </table>
       </div>
