@@ -1,7 +1,7 @@
 module.exports = {
-  develop_addr: "0x5f6aBeCA30Bd69F5996A41828e3A546B1d45ED3A",
-  url: "http://110.9.51.75:8545/",
-  cont_address: "0xcbc4ab3b53d61d3abe2A27098f359750Ad091456",
+  develop_addr: "0xB7065F7E0A6c9baF8C54344c0B83092F5c5b264A",
+  url: "http://1.225.52.88:8545/",
+  cont_address: "0x9Ef777142efe34974Cc4Ab761FEf75E4852875F7",
   abi: [
     {
       "anonymous": false,
