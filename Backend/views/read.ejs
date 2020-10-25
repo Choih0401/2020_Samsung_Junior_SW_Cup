@@ -43,8 +43,13 @@
         <a onclick="history.go(-1);" class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
       </div>
   </div>
+  <div class="container" style="margin-top: 10rem;">
+    <div class="hr2 animated fadeIn">
+      <hr>
+    </div>
+  </div>
   <% if(board.active) { %>
-    <div class="container" style="margin-top: 10rem;">
+    <div class="container">
       <h3 class="text-center wow fadeIn" data-wow-delay=".5s">기부하기</h3>
       <form action="/posts" method="post">
         <div style="border:2px solid #003e7e; border-radius:0.5em; padding:10px;">

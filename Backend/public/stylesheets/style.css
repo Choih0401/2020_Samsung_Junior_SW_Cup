@@ -665,6 +665,14 @@ JUMBOTRON
 	height: 2px;
 }
 
+.hr2 hr {
+	background-color: #000;
+	position: relative;
+	top: -50px;
+	border: none;
+	height: 2px;
+}
+
 .hr img {
 	width: 300px;
 	position: relative;
