@@ -25,28 +25,22 @@
 
 <section class="marlies-package">
   <div class="container">
-    <h3 class="text-center wow fadeIn" data-wow-delay=".5s"><%= board.title %></h3>
+    <h3 class="text-center wow fadeIn" data-wow-delay=".5s">글쓰기</h3>
     <form action="/posts" method="post">
     
-        <% if(!board.img) { %>
-          <div class="form-group">
-            <img src="<%= board.img %>" alt="<%= board.title %>" width="100%" height="500" style="vertical-align:middle"></img>
-          </div>
-        <% } %>
+        <div class="form-group">
+          <label for="title">제목</label>
+          <input type="text" id="title" name="title" value="" class="form-control">
+        </div>
         
         <div class="form-group">
-          <label for="body">내용</label>
-          <div style="border:2px solid #003e7e; border-radius:0.5em; padding:10px;">
-            <%= board.content %>
-          </div>
+          <label for="body">전화번호(숫자만 입력)</label>
+          <input type="tel" id="title" name="title" value="" class="form-control">
         </div>
 
         <div>
-            <a onclick="history.go(-1);" class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
-            <% if(board.active) { %>
-              <input type="number" id="cnt" name="cnt" min="1" max="10" class="form-control">
-              <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px;">기부하기</button>
-            <% } %>
+            <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px; background-color: white;">등록하기</button>
+            <a href="#" onclick="history.back()" class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
         </div>
 
       </form>
@@ -76,7 +70,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/public/scripts/script.js"></script>
-
 </body>
 </html>
 
