@@ -26,29 +26,36 @@
 <section class="marlies-package">
   <div class="container">
     <h3 class="text-center wow fadeIn" data-wow-delay=".5s"><%= board.title %></h3>
-    <form action="/posts" method="post">
-        <% if(!board.img) { %>
-          <div class="form-group">
-            <img src="/public/uploads/<%= board.img %>" alt="<%= board.title %>" width="100%" height="500" style="vertical-align:middle"></img>
-          </div>
-        <% } %>
         
-        <div class="form-group">
-          <div style="border:2px solid #003e7e; border-radius:0.5em; padding:10px;">
-            <%= board.content %>
-          </div>
+      <div class="form-group">
+        <div style="border:2px solid #003e7e; border-radius:0.5em; padding:10px;">
+          <% if(board.img) { %>
+            <img src="/public/uploads/<%= board.img %>" alt="<%= board.title %>" width="100%" height="500" style="vertical-align:middle"></img>
+          <% } %>
+          <%= board.content %>
         </div>
+      </div>
 
-        <div>
-            <a onclick="history.go(-1);" class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
-            <% if(board.active) { %>
-              <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px;">기부하기</button>
-              <input type="number" id="cnt" name="cnt" min="1" max="10" style="margin-left:5px; border:2px solid #003e7e; float:right; border-radius:0.2em;">
-            <% } %>
-        </div>
-
-      </form>
+      <div>
+        <% if(board.active && board.id == usercookie) { %>
+          <a onclick="history.go(-1);" class="btn btn-outline-info float-right" style="margin-left:5px;">마감하기</a>
+        <% } %>
+        <a onclick="history.go(-1);" class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
+      </div>
   </div>
+  <% if(board.active) { %>
+    <div class="container" style="margin-top: 10rem;">
+      <h3 class="text-center wow fadeIn" data-wow-delay=".5s">기부하기</h3>
+      <form action="/posts" method="post">
+        <div style="border:2px solid #003e7e; border-radius:0.5em; padding:10px;">
+          <a>기부할 헌혈증의 갯수를 입력하세요 : </a>
+          <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px; background-color: white;">기부하기</button>
+          <input type="number" id="cnt" name="cnt" min="1" max="1000" style="margin-left:5px; border:2px solid #003e7e; border-radius:0.2em; text-align:right;">
+          <a> 개</a>
+        </div>
+      </form>
+    </div>
+  <% } %>
 </section>
 <!-- /// END MARLIES PACKAGES \\\ -->
 

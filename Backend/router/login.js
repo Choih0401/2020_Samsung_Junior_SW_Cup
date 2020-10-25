@@ -57,6 +57,7 @@ router.post("/", (req, res) => {
       req.session.address = rows[0].address;
       req.session.BCKey = BCKey;
       console.log(req.session);
+      res.cookie('user', rows[0].id)
       return res.send("<script>location.href='./index'</script>");
     }
   );
