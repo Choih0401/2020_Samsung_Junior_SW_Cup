@@ -49,7 +49,7 @@ router.post("/", (req, res) => {
         encBCKey += cipher.final("base64");
 
         conn.query(
-          "INSERT INTO user (id, name, resident, salt, iv, encBCKey, address, isAdmin, BCKey) VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?)",
+          "INSERT INTO user (id, name, resident, salt, iv, encBCKey, address, isAdmin, BCKey, isHospital) VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, 0)",
           [
             req.body.RegisterId,
             req.body.username,

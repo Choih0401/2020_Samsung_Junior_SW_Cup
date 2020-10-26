@@ -19,7 +19,10 @@ isAdmin = (userid) => {
 }
 
 router.get("/", (req, res) => {
-    res.render("admin");
+    conn.query("SELECT * FROM user", [], (err, rows, fields) => {
+        if(err) return res.status(500).json();
+        res.render("admin", {user: rows});
+    })
 })
 
 // POST donateDate, birth, gender, name, kind, userid
