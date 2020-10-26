@@ -23,19 +23,19 @@
         </div>
       </div>
       <div style="padding: 0 40px;">
-        <form action="/posts" method="post" class="my-form">
+        <form method="post" class="my-form">
           <div class="grid-2">
             <input style="margin-bottom: 1rem; width:50%;" type="date" name="donateDate" id="donateDate" placeholder="헌혈 일자" required>  
             <input style="margin-bottom: 1rem; width:50%;" type="date" name="birth" id="birth" placeholder="생일" required>
             <select style="margin-bottom: 1rem; width:50%; height: 50px; font-size: 12px;" name="gender" id="gender" require>
               <option selected disabled>-- 성별을 선택해주세요 --</option>
-              <option>남자</option>
-              <option>여자</option>
+              <option value="1">남자</option>
+              <option value="0">여자</option>
             </select>
             <input style="margin-bottom: 1rem; width:50%;" type="text" name="name" id="name" placeholder="이름" required>
             <input style="margin-bottom: 1rem; width:50%;" type="text" name="kind" id="kind" placeholder="헌혈 종류" required>
             <input style="margin-bottom: 1rem; width:50%;" type="text" name="userid" id="userid" placeholder="사용자 id" required>
-            <button style="margin-bottom: 1rem; width:50%; font-size:12px;" class="btn-grid" type="reset">추가하기</button>
+            <button style="margin-bottom: 1rem; width:50%; font-size:12px;" class="btn-grid" type="submit">추가하기</button>
           </div>
         </form>
       </div>

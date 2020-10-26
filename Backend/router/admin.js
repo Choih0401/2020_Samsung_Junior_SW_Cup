@@ -54,7 +54,7 @@ router.post("/", (req, res) => {
             .then(() => {
                 web3.createCert(rows[0].address, req.body.donateDate, req.body.birth, req.body.gender, req.body.name, req.body.kind)
                 .then(() => {
-                    return res.status(200).json({success: true});
+                    return res.send("<script>alert('추가 성공');history.go(-1);</script>")
                 })
                 .catch((err) => {
                     console.log(err);
