@@ -9,6 +9,7 @@ const indexRouter = require("./index");
 const adminRouter = require("./admin")
 const writeRouter = require("./write")
 const mypageRouter = require("./mypage")
+const giveRouter = require("./give")
 
 authCheck = (req, res, next) => {
   if (!req.session.userid) {
@@ -42,6 +43,7 @@ router.use("/public", (req, res) => {
 router.use("/api", apiRouter);
 router.use("/login", loginRouter);
 router.use("/register", registerRouter);
+router.use("/give", authCheck, giveRouter);
 router.use("/admin", authCheck, adminRouter);
 router.use("/write", authCheck, writeRouter);
 router.use("/index", authCheck, indexRouter);
