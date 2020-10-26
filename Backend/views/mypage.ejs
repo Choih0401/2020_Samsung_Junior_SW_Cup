@@ -29,10 +29,8 @@
     
     <div class="form-group">
         <label for="body">사용하지 않은 헌혈증</label>
-        
         <% for(var i=0; i< bloodCerts.length; i++) { %>
             <% if(bloodCerts[i].used) continue; %>
-            
             <% var nowTime = new Date(Number(bloodCerts[i].donateDate)*1000) %>
             <% var month = nowTime.getMonth() + 1 %>
             <% var day = nowTime.getDate() %>
@@ -43,16 +41,12 @@
                 <p>헌혈종류 : <%= bloodCerts[i].kind %></p>
                 <p></p>
             </div>
-            
         <% } %>
-        <% if(!cnt) { <p>사용하지 않은 헌혈증이 없습니다.</p> } %>
     </div>
     <div class="form-group">
         <label for="body">사용한 헌혈증</label>
-        
         <% for(var i=0; i< bloodCerts.length; i++) { %>
             <% if(!bloodCerts[i].used) continue; %>
-            
             <% var nowTime = new Date(Number(bloodCerts[i].donateDate)*1000) %>
             <% var month = nowTime.getMonth() + 1 %>
             <% var day = nowTime.getDate() %>
