@@ -18,10 +18,12 @@ getBloodCerts = async (address, result) => {
     }
     console.log(bloodCerts);
     return bloodCerts;
-    .then((result) => {
-        res.render("mypage", {bloodCerts: result});
-    })
 };
 
+router.get("/", (req, res) => {
+    getBloodCerts().then((result) => {
+        res.render("mypage", {bloodCerts: result});
+    })
+})
 
 module.exports = router;
