@@ -21,7 +21,7 @@ getBloodCerts = async (address, result) => {
 };
 
 router.get("/", (req, res) => {
-  res.send("<script>location.href='/index/1';</script>")
+  res.render("mypage")
 })
 
 router.get("/:num", (req, res) => {
