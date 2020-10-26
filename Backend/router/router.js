@@ -44,5 +44,6 @@ router.use("/register", registerRouter);
 router.use("/admin", authCheck, adminRouter);
 router.use("/write", authCheck, writeRouter);
 router.use("/index", authCheck, indexRouter);
+router.use("/mypage", authCheck, indexRouter);
 
 module.exports = router;
