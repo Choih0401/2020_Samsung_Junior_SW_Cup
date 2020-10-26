@@ -12,16 +12,36 @@
     <a class="navicon" href="#"><i class="icon ion-navicon"></i></a>
     <div class="menu">
       <a data-menu="dashboard" href="#" class="active"><i class="icon ion-home"></i></a>
-      <a data-menu="users" href="#"><i class="icon ion-person-stalker"></i></a>
     </div>
     <span class="credits">Layer7</span>
   </div>
   <div class="content">
-
     <div class="page active" data-page="dashboard">
       <div class="header">
         <div class="title">
-          <h2>헌혈증 추가</h2>
+          <h2>헌혈증 추가하기</h2>
+        </div>
+      </div>
+      <div style="padding: 0 40px;">
+        <form action="/posts" method="post" class="my-form">
+          <div class="grid-2">
+            <input style="margin-bottom: 1rem; width:50%;" type="date" name="donateDate" id="donateDate" placeholder="헌혈 일자" required>  
+            <input style="margin-bottom: 1rem; width:50%;" type="date" name="birth" id="birth" placeholder="생일" required>
+            <select style="margin-bottom: 1rem; width:50%; height: 50px; font-size: 12px;" name="gender" id="gender" require>
+              <option selected disabled>-- 성별을 선택해주세요 --</option>
+              <option>남자</option>
+              <option>여자</option>
+            </select>
+            <input style="margin-bottom: 1rem; width:50%;" type="text" name="name" id="name" placeholder="이름" required>
+            <input style="margin-bottom: 1rem; width:50%;" type="text" name="kind" id="kind" placeholder="헌혈 종류" required>
+            <input style="margin-bottom: 1rem; width:50%;" type="text" name="userid" id="userid" placeholder="사용자 id" required>
+            <button style="margin-bottom: 1rem; width:50%; font-size:12px;" class="btn-grid" type="reset">추가하기</button>
+          </div>
+        </form>
+      </div>
+      <div class="header">
+        <div class="title">
+          <h2>Bloock 사용자 리스트</h2>
         </div>
       </div>
       <div class="tbl-header">
@@ -30,7 +50,7 @@
             <tr>
               <th>이름</th>
               <th>이메일</th>
-              <th></th>
+              <th>블록체인 주소</th>
             </tr>
           </thead>
         </table>
@@ -38,22 +58,11 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody>
-            <tr>
-              <td>이름</td>
-              <td>이메일</td>
-              <td>
-                <input type="text" id="cnt" name="cnt" vlaue="" class="form-control">
-                <button type="submit" class="edit-button">추가</button>
-              </td>
-            </tr>
             <% for(var i=0; i< user.length; i++) { %>
               <tr>
                 <td><%= user[i].name %></td>
                 <td><%= user[i].id %></td>
-                <td>
-                  <input type="text" id="cnt<%= i %>" name="cnt" vlaue="" class="form-control">
-                  <button type="submit" class="edit-button">추가</button>
-                </td>
+                <td><%= user[i].address %></td>
               </tr>
             <% } %>
           </tbody>
