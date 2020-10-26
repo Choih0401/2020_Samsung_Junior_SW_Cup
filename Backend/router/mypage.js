@@ -4,7 +4,6 @@ const db = require("../db/db_conn")();
 const crypto = require("crypto");
 const conn = db.init();
 const web3 = require("../web3/web3");
-const { getBloodCerts } = require("../web3/web3");
 
 db.connect(conn);
 
@@ -22,7 +21,7 @@ getBloodCerts = async (address, result) => {
 };
 
 router.get("/", (req, res) => {
-    res.render("mypage");
+    res.render("mypage", {bloodCerts: getBloodCerts(address, result)});
 })
 
 module.exports = router;
