@@ -19,9 +19,13 @@ isAdmin = (userid) => {
 }
 
 router.get("/", (req, res) => {
-    conn.query("SELECT * FROM user", [], (err, rows, fields) => {
-        if(err) return res.status(500).json();
-        res.render("admin", {user: rows});
+    isAdmin(req.session.userid)
+    .then((result) => {
+        if(!result) return res.status(403).json();
+        conn.query("SELECT * FROM user", [], (err, rows, fields) => {
+            if(err) return res.status(500).json();
+            res.render("admin", {user: rows});
+        })
     })
 })
 
