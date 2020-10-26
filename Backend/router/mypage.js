@@ -21,7 +21,7 @@ getBloodCerts = async (address, result) => {
 };
 
 router.get("/", (req, res) => {
-    res.render("mypage", {bloodCerts: async()});
+    res.render("mypage", {bloodCerts: getBloodCerts()});
 })
 
 module.exports = router;
