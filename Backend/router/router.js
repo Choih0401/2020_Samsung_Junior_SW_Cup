@@ -8,6 +8,7 @@ const registerRouter = require("./register");
 const indexRouter = require("./index");
 const adminRouter = require("./admin")
 const writeRouter = require("./write")
+const mypageRouter = require("./mypage")
 
 authCheck = (req, res, next) => {
   if (!req.session.userid) {
@@ -44,6 +45,6 @@ router.use("/register", registerRouter);
 router.use("/admin", authCheck, adminRouter);
 router.use("/write", authCheck, writeRouter);
 router.use("/index", authCheck, indexRouter);
-router.use("/mypage", authCheck, indexRouter);
+router.use("/mypage", authCheck, mypageRouter);
 
 module.exports = router;
