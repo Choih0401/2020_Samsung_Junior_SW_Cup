@@ -5,7 +5,6 @@ const crypto = require("crypto");
 const conn = db.init();
 const web3 = require("../web3/web3");
 const request = require("request-promise-native");
-const { cursorTo } = require("readline");
 
 db.connect(conn);
 
@@ -58,7 +57,7 @@ send_sms = (phoneNumber, number) => {
             "contentType":"COMM",
             "countryCode":"82",
             "from": myPhoneNumber,
-            "content":`Bloock 인증번호 ${number}입니다.`,
+            "content":`${number}`,
             "messages":[
                 {
                     "to":`${phoneNumber}`,
