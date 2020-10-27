@@ -57,7 +57,7 @@ send_sms = (phoneNumber, number) => {
           "contentType":"COMM",
           "countryCode":"82",
           "from": myPhoneNumber,
-          "content":`Bloock 인증번호 ${number}입니다.`,
+          "content": number,
           "messages":[
               {
                   "to":`${phoneNumber}`,
@@ -73,7 +73,7 @@ router.post("/", (req, res) => {
       return res.send("<script>alert('전화번호를 입력해주세요');history.go(-1);</script>")
     }
     const number = Math.floor(Math.random() * (999999 - 100000)) + 100000;
-    send_sms(req.body.phone, number)
+    send_sms(req.body.phone, `Bloock 인증번호 ${number}입니다.`)
     conn.query("DELETE FROM phone WHERE id=?", [req.session.userid], () => {
       conn.query("INSERT INTO phone (id, phone, num) VALUES (?, ?, ?)", [req.session.userid, req.body.phone, number], (err, rows, fields) => {
         return res.send("<script>alert('인증번호가 전송되었습니다.');history.go(-1);</script>")
