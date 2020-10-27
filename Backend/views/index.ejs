@@ -14,6 +14,24 @@
 <div class="jumbotron cd-intro">
   <div class="container cd-intro-content mask">
     <div class="hr animated fadeIn">
+      <% var have = 0; %>
+      <% for(var i = 0; i < bloodCerts.length; i++){ %>
+        <% have += 1 %>
+      <% } %>
+
+      <% if(have < 30) { %>
+        <img style="width:10%; height:10%;" src="/public/images/no.png" alt="That's nono">
+      <% } else if(have < 50) { %>
+        <img style="width:10%; height:10%;" src="/public/images/silver.png" alt="That's nono">
+      <% } else if(have < 100) { %>
+        <img style="width:10%; height:10%;" src="/public/images/gold.png" alt="That's nono">
+      <% } else if(have < 200) { %>
+        <img style="width:10%; height:10%;" src="/public/images/platinum.png" alt="That's nono">
+      <% } else if(have < 300) { %>
+        <img style="width:10%; height:10%;" src="/public/images/diamond.png" alt="That's nono">
+      <% } else { %>
+        <img style="width:10%; height:10%;" src="/public/images/crown.png" alt="That's nono">
+      <% } %>
       <b><h1 style="padding-bottom: 10vh; font-size: 6rem" data-content="BLOOCK"><span>BLOOCK.</span></h1></b>
       <hr>
     </div>
@@ -33,8 +51,8 @@
 <!-- /// TICKET PACKAGES \\\ -->
 <div class="container-fluid wrapper-packages">
   <section class="packages" id="packages">
+    <b><p style="text-align: center; margin-bottom: 5rem; font-size: 2rem;">현재까지 발급 받은 헌혈증은 총 <%= have %>개 입니다. </p></b>
     <div class="row">
-
       <div class="col-md-6 leafs-package">
         <h1 class="text-center">사용하지 않은 헌혈증</h1>
         <table>
@@ -64,10 +82,9 @@
             <% } %>
         </table>
         <br>
-        <p style="text-align: center;"> <%= count %> 개 </p>
-        <% if(bloodCerts.length > 5) { %>
+        <% if(count >= 5) { %>
           <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/mypage">모두 보기</a></li>
+            <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/unused">더 보기</a></li>
           </ul>
         <% } %>
       </div>
@@ -103,10 +120,9 @@
           </tbody>
         </table>
         <br>
-        <p style="text-align: center;"> <%= count2 %> 개 </p>
-        <% if(bloodCerts.length > 5) { %>
+        <% if(count2 > 5) { %>
           <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/mypage">모두 보기</a></li>
+            <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/used">더 보기</a></li>
           </ul>
         <% } %>
       </div>

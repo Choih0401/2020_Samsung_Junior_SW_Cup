@@ -25,31 +25,9 @@
 
 <section class="marlies-package">
   <div class="container">
-    <h3 class="text-center wow fadeIn" data-wow-delay=".5s">내 헌혈증</h3>
+    <h3 class="text-center wow fadeIn" data-wow-delay=".5s">사용한 헌혈증</h3>
     
     <div class="form-group">
-        <label for="body">사용하지 않은 헌혈증</label>
-        <% var cnt = 0 %>
-        <% for(var i=0; i< bloodCerts.length; i++) { %>
-            <% if(bloodCerts[i].used) continue; %>
-            <% cnt += 1 %>
-            <% var nowTime = new Date(Number(bloodCerts[i].donateDate)*1000) %>
-            <% var month = nowTime.getMonth() + 1 %>
-            <% var day = nowTime.getDate() %>
-            <% var year = nowTime.getFullYear() %>
-            <div style="margin-bottom: 1rem; border:2px solid #003e7e; border-radius:0.5em; padding:10px;">
-                <p>이름 : <%= bloodCerts[i].name %></p>
-                <p>헌혈일자 : <%= year + "-" + month + "-" + day %></p>
-                <p>헌혈종류 : <%= bloodCerts[i].kind %></p>
-                <p></p>
-            </div>
-        <% } %>
-        <% if(!cnt) { %>
-          <p>사용하지 않은 헌혈증이 없습니다.</p>
-        <% } %>
-    </div>
-    <div class="form-group">
-        <label for="body">사용한 헌혈증</label>
         <% cnt = 0 %>
         <% for(var i=0; i< bloodCerts.length; i++) { %>
             <% if(!bloodCerts[i].used) continue; %>
