@@ -57,7 +57,7 @@ send_sms = (phoneNumber, number) => {
             "contentType":"COMM",
             "countryCode":"82",
             "from": myPhoneNumber,
-            "content":`${number}`,
+            "content": number,
             "messages":[
                 {
                     "to":`${phoneNumber}`,
