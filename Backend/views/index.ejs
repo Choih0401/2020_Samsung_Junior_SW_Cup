@@ -71,16 +71,16 @@
           <tbody>
             <% var count = 0; %>
             <% for(var i = 0; i < bloodCerts.length; i++){ %>
-              <% if(bloodCerts[count].used) continue; %>
+              <% if(bloodCerts[i].used) continue; %>
               <% if(count >= 5) break; %>
-              <% var nowTime = new Date(Number(bloodCerts[count].donateDate)*1000) %>
+              <% var nowTime = new Date(Number(bloodCerts[i].donateDate)*1000) %>
               <% var month = nowTime.getMonth() + 1 %>
               <% var day = nowTime.getDate() %>
               <% var year = nowTime.getFullYear() %>
               <tr>
                 <td class="date"><%= year + "-" + month + "-" + day %></td>
-                <td class="team"><%= bloodCerts[count].kind %></td>
-                <td class="time"><%= bloodCerts[count].name %></td>
+                <td class="team"><%= bloodCerts[i].kind %></td>
+                <td class="time"><%= bloodCerts[i].name %></td>
               </tr>
               <% count += 1 %>
             <% } %>
@@ -107,17 +107,17 @@
 
           <tbody>
             <% var count2 = 0; %>
-            <% for(var j = 0; j < bloodCerts.length; j++){ %>
-              <% if(!bloodCerts[count2].used) continue; %>
+            <% for(var i = 0; i < bloodCerts.length; i++){ %>
+              <% if(!bloodCerts[i].used) continue; %>
               <% if(count2 >= 5) break; %>
-              <% var nowTime = new Date(Number(bloodCerts[count2].donateDate)*1000) %>
+              <% var nowTime = new Date(Number(bloodCerts[i].donateDate)*1000) %>
               <% var month = nowTime.getMonth() + 1 %>
               <% var day = nowTime.getDate() %>
               <% var year = nowTime.getFullYear() %>
               <tr>
                 <td class="date"><%= year + "-" + month + "-" + day %></td>
-                <td class="team"><%= bloodCerts[count2].kind %></td>
-                <td class="time"><%= bloodCerts[count2].name %></td>
+                <td class="team"><%= bloodCerts[i].kind %></td>
+                <td class="time"><%= bloodCerts[i].name %></td>
               </tr>
               <% count2 += 1 %>
             <% } %>
