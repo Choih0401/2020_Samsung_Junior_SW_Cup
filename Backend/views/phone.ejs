@@ -25,17 +25,27 @@
 
 <section class="marlies-package">
   <div class="container">
-    <h3 class="text-center wow fadeIn" data-wow-delay=".5s">글쓰기</h3>
+    <h3 class="text-center wow fadeIn" data-wow-delay=".5s">SMS 서비스 신청하기</h3>
     <form action="/posts" method="post">
     
         <div class="form-group">
-          <label for="title">제목</label>
-          <input type="text" id="title" name="title" value="" class="form-control">
+          <label for="title">이름</label>
+          <input type="text" id="name" name="name" value="" class="form-control">
         </div>
         
         <div class="form-group">
+          <label for="title">이메일</label>
+          <input type="text" id="email" name="email" value="" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="title">비밀번호</label>
+          <input type="password" id="password" name="password" value="" class="form-control">
+        </div>
+
+        <div class="form-group">
           <label for="body">전화번호(숫자만 입력)</label>
-          <input type="tel" id="title" name="title" value="" class="form-control">
+          <input type="tel" id="phone" name="phone" value="" class="form-control">
         </div>
 
         <div>
