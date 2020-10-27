@@ -12,6 +12,7 @@ const unusedRouter = require("./unused")
 const usedRouter = require("./used")
 const giveRouter = require("./give")
 const phoneRouter = require("./phone")
+const hospitalRouter = require("./hospital")
 
 authCheck = (req, res, next) => {
   if (!req.session.userid) {
@@ -52,5 +53,6 @@ router.use("/index", authCheck, indexRouter);
 router.use("/unused", authCheck, unusedRouter);
 router.use("/used", authCheck, usedRouter);
 router.use("/phone", authCheck, phoneRouter);
+router.use("/hospital", authCheck, hospitalRouter);
 
 module.exports = router;
