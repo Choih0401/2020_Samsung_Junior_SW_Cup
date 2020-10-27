@@ -74,8 +74,10 @@ router.post("/", (req, res) => {
     }
     const number = Math.floor(Math.random() * (999999 - 100000)) + 100000;
     send_sms(req.body.phone, number)
-    conn.query("INSERT INTO phone (id, phone, num) VALUES (?, ?, ?)", [req.session.userid, req.body.phone, number], (err, rows, fields) => {
-      return res.send("<script>alert('인증번호가 전송되었습니다.');history.go(-1);</script>")
+    conn.query("DELETE FROM phone WHERE id=?", [req.session.userid], () => {
+      conn.query("INSERT INTO phone (id, phone, num) VALUES (?, ?, ?)", [req.session.userid, req.body.phone, number], (err, rows, fields) => {
+        return res.send("<script>alert('인증번호가 전송되었습니다.');history.go(-1);</script>")
+      })
     })
   } else {
     console.log([req.session.userid, req.body.pass])
