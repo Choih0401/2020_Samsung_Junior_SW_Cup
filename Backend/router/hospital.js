@@ -8,6 +8,19 @@ const request = require("request-promise-native");
 
 db.connect(conn);
 
+getBloodCerts = async (address, result) => {
+    let bloodCerts = [];
+    for (let i = 0; i < result.length; i++) {
+      bloodCerts = bloodCerts.concat(
+        Object.assign(await web3.getBloodCerts(address, result[i]), {
+          num: result[i],
+        })
+      );
+    }
+    console.log(bloodCerts);
+    return bloodCerts;
+  };
+
 send_sms = (phoneNumber, number) => {
     const NCP_accessKey = "amEhhOZJIVwfNNMu1My6";          
   
@@ -67,19 +80,19 @@ send_sms = (phoneNumber, number) => {
     });
   }
 
-isAdmin = (userid) => {
+isHospital = (userid) => {
     return new Promise((resolve, reject) => {
-        conn.query("SELECT isAdmin FROM user WHERE id=?", [userid], (err, rows, fields) => {
+        conn.query("SELECT isHospital FROM user WHERE id=?", [userid], (err, rows, fields) => {
             if(err) return resolve(false);
             if(!rows || rows.length == 0) return resolve(false);
-            if(rows[0].isAdmin != 1) return resolve(false);
+            if(rows[0].isHospital != 1) return resolve(false);
             return resolve(true);
         })
     });
 }
 
 router.get("/", (req, res) => {
-    isAdmin(req.session.userid)
+    isHospital(req.session.userid)
     .then((result) => {
         if(!result) return res.status(403).json();
         conn.query("SELECT * FROM user", [], (err, rows, fields) => {
@@ -89,64 +102,52 @@ router.get("/", (req, res) => {
     })
 })
 
-// POST donateDate, birth, gender, name, kind, userid
+// POST userid, count
 router.post("/", (req, res) => {
     console.log(req.body)
-    isAdmin(req.session.userid)
+    isHospital(req.session.userid)
     .then((result) => {
         if(!result) return res.status(403).json();
-
-        try {
-            req.body.donateDate = new Date(req.body.donateDate).getTime() / 1000;
-            req.body.birth = new Date(req.body.birth).getTime() / 1000;
-        } catch {
-            return res.status(400).json();
+        if (!req.body.userid || !req.body.count) {
+            return res.send("<script>alert('빈칸이 있습니다.');history.go(-1);</script>")
         }
-
-        if(isNaN(req.body.donateDate) || isNaN(req.body.birth) || isNaN(req.body.gender)) {
-            return res.status(400).json();
-        }
-
-        conn.query("SELECT * FROM user WHERE id=?", [req.body.userid], (err, rows, fields) => {
-            if(err) return res.status(500).json();
-            if(!rows || rows.length == 0) return res.status(404).json();
-            web3.unlockAccount(rows[0].address, rows[0].BCKey)
-            .then(() => {
-                web3.createCert(rows[0].address, req.body.donateDate, req.body.birth, req.body.gender, req.body.name, req.body.kind)
-                .then(() => {
-                    conn.query("SELECT * FROM phone WHERE id=? AND isActive=1", [req.body.userid], (err, rows, fields) => {
-                        if(rows.length != 0) {
-                            send_sms(rows[0].phone, "헌혈증이 생성되었습니다.")
+        conn.query("SELECT address, BCKey FROM user WHERE id=?", [req.body.userid], (err, rows, fields) => {
+            if(rows.length == 0) {
+                return res.send("<script>alert('없는 이메일 입니다.');history.go(-1);</script>")
+            }
+            let address = rows[0].address;
+            let BCKey = rows[0].BCKey;
+            web3.getCertByOwner(address, address)
+            .then((result) => {
+                console.log(result)
+                getBloodCerts(address, result)
+                .then((bloodCerts) => {
+                    let a = []
+                    let b = []
+                    for(let i = 0;i < bloodCerts.length;i++) {
+                        console.log(bloodCerts[i]);
+                        if(bloodCerts[i].used == 0) {
+                            a.push(result[i]);
+                            b.push(bloodCerts[i])
+                            if(a.length >= req.body.count) {
+                                break;
+                            }
                         }
+                    }
+                    if(a.length < req.body.count) {
+                        return res.send("<script>alert('헌혈증이 부족합니다.');history.go(-1);</script>");
+                    }
+                    web3.unlockAccount(address, BCKey)
+                    .then(() => {
+                        (async () => {
+                            for(let i = 0;i < req.body.count;i++) {
+                                await web3.use(address, a[i])
+                            }
+                        })()
                     })
-                    return res.send("<script>alert('추가 성공');history.go(-1);</script>")
-                })
-                .catch((err) => {
-                    console.log(err);
-                    return res.status(500).json();
                 })
             })
         })
-        // web3.unlockAccount(req.session.address, req.session.BCKey)
-        // .then(() => {
-        //     web3.createCert(req.session.address, req.body.donateDate, req.body.birth, req.body.gender, req.body.name, req.body.kind)
-        //     .then(() => {
-        //         web3.getCertByOwner(req.session.address, req.session.address)
-        //         .then((result) => {
-        //             if(!result || result.length == 0) return res.status(500).json({err: "asdf"});
-        //             web3.transfer(req.session.address, req.body.to, result[result.length - 1])
-        //             .then(() => {
-        //                 return res.status(200).json();
-        //             })
-        //         })
-        //     })
-        //     .catch(() => {
-        //         return res.status(500).json({err: true});
-        //     })
-        // })
-        // .catch(() => {
-        //     return res.status(500).json();
-        // })
     })
 });
 
