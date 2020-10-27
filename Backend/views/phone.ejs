@@ -27,25 +27,13 @@
   <div class="container">
     <h3 class="text-center wow fadeIn" data-wow-delay=".5s">SMS 서비스 신청하기</h3>
     <form action="/smsService" method="post">
-    
-        <div class="form-group">
-          <label for="title">이름</label>
-          <input type="text" id="name" name="name" value="" class="form-control">
-        </div>
-        
-        <div class="form-group">
-          <label for="title">이메일</label>
-          <input type="text" id="email" name="email" value="" class="form-control">
-        </div>
-
-        <div class="form-group">
-          <label for="title">비밀번호</label>
-          <input type="password" id="password" name="password" value="" class="form-control">
-        </div>
 
         <div class="form-group">
           <label for="body">전화번호(숫자만 입력)</label>
           <input type="tel" id="phone" name="phone" value="" class="form-control">
+          <a>인증번호 : </a>
+          <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px; background-color: white;">인증하기</button>
+          <input type="text" id="pass" name="pass" style="margin-left:5px; border:2px solid #003e7e; border-radius:0.5em; text-align:right;">
         </div>
 
         <div>
