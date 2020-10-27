@@ -31,18 +31,21 @@ router.get("/:num", (req, res) => {
       console.log(result)
       getBloodCerts(req.session.address, result)
         .then((bloodCerts) => {
-          conn.query("SELECT num, title, name FROM board ORDER BY num DESC", [], (err, rows, fields) => {
-            if(err) return res.status(500).json();
-            bloodCerts = bloodCerts || [];
-            console.log("헌혈증: ", bloodCerts);
-            console.log("이름: " + req.session.name);
-            console.log("개수: " + bloodCerts.length);
-            res.render("index", {
-              bloodCerts: bloodCerts,
-              name: req.session.name,
-              page: req.params.num,
-              board: rows
-            });
+          conn.query("SELECT COUNT(*) AS num FROM user", [], (err, rows, fields) => {
+            conn.query("SELECT num, title, name FROM board ORDER BY num DESC", [], (err, row, fields) => {
+              if(err) return res.status(500).json();
+              bloodCerts = bloodCerts || [];
+              console.log("헌혈증: ", bloodCerts);
+              console.log("이름: " + req.session.name);
+              console.log("개수: " + bloodCerts.length);
+              res.render("index", {
+                bloodCerts: bloodCerts,
+                name: req.session.name,
+                page: req.params.num,
+                board: rows,
+                num: row[0].num
+              });
+            })
           })
         })
         .catch(console.error);
