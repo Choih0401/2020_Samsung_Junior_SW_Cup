@@ -15,7 +15,11 @@
   <div class="container cd-intro-content mask">
     <div class="hr animated fadeIn">
       <% var have = 0; %>
+      <% var use = 0; %>
+      <% var unuse = 0; %>
       <% for(var i = 0; i < bloodCerts.length; i++){ %>
+        <% if(bloodCerts[i].used) use+=1; %>
+        <% if(!bloodCerts[i].used) unuse+=1; %>
         <% have += 1 %>
       <% } %>
 
@@ -82,7 +86,7 @@
             <% } %>
         </table>
         <br>
-        <% if(count >= 5) { %>
+        <% if(unuse > 5) { %>
           <ul class="pagination justify-content-center">
             <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/unused">더 보기</a></li>
           </ul>
@@ -120,7 +124,7 @@
           </tbody>
         </table>
         <br>
-        <% if(count2 > 5) { %>
+        <% if(use > 5) { %>
           <ul class="pagination justify-content-center">
             <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/used">더 보기</a></li>
           </ul>
