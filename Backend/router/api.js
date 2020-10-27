@@ -62,6 +62,7 @@ router.get("/board/:num", (req, res) => {
     if(rows.length == 0) {
       return res.status(404).json();
     }
+    console.log(rows[0])
     res.render('read', {board: rows[0], usercookie: req.cookies.user});
     //return res.status(200).json(rows[0]);
   })
