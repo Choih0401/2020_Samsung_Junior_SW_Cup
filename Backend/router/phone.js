@@ -78,7 +78,8 @@ router.post("/", (req, res) => {
       return res.send("<script>alert('인증번호가 전송되었습니다.');history.go(-1);</script>")
     })
   } else {
-    conn.query("SELECT * FROM phone WHERE id=? AND num=?", [req.session.userid, req.body.num], (err, rows, fields) => {
+    console.log([req.session.userid, req.body.pass])
+    conn.query("SELECT * FROM phone WHERE id=? AND num=?", [req.session.userid, req.body.pass], (err, rows, fields) => {
       if(rows.length == 0) {
         return res.send("<script>alert('인증번호가 올바르지 않습니다.');history.go(-1);</script>")
       } else {
