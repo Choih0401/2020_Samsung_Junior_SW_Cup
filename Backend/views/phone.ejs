@@ -30,19 +30,24 @@
 
         <div class="form-group">
           <label for="body">전화번호(숫자만 입력)</label>
-          <input type="tel" id="phone" name="phone" value="" class="form-control">
-          <button type="submit" class="btn btn-outline-info float-right" style="margin-top:15px; margin-left:5px; background-color: white;">인증번호 요청하기</button>
+          <div class="bootstrap-filestyle input-group">
+            <input type="tel" id="phone" name="phone" value="" class="form-control">
+            <span class="group-span-filestyle input-group-btn" tabindex="0">
+            <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px; background-color: white;">인증번호 요청하기</button>
+            </span>
+          </div>
           <br>
           <br>
           <label for="body">인증 번호</label>
           <div class="bootstrap-filestyle input-group">
             <input type="text" id="pass" class="form-control" name="pass">
             <span class="group-span-filestyle input-group-btn" tabindex="0">
-         </div>
+            <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px; background-color: white;">인증하기</button>\
+            </span>
+          </div>
         </div>
 
         <div>
-            <button type="submit" class="btn btn-outline-info float-right" style="margin-left:5px; background-color: white;">인증하기</button>
             <a href="#" onclick="history.back()" class="btn btn-outline-info float-right" style="margin-left:5px;">뒤로가기</a>
         </div>
 
