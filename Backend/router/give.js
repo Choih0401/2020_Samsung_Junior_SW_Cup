@@ -44,11 +44,11 @@ router.post("/", (req, res) => {
                 }
             }
             if(a.length < req.body.num) {
-                return res.send("<script>alert('초과')</script>");
+                return res.send("<script>alert('헌혈증이 부족합니다.');history.go(-1);</script>");
             }
             conn.query("SELECT * FROM user WHERE id=?", [req.body.to], (err, rows, fields) => {
                 if(rows.length == 0) {
-                    return res.send("<script>alert('없는아이디')<script>");
+                    return res.send("<script>alert('없는 아이디 입니다.');history.go(-1);<script>");
                 }
                 web3.unlockAccount(req.session.address, req.session.BCKey)
                 .then(() => {
@@ -59,7 +59,7 @@ router.post("/", (req, res) => {
                                 await web3.createCert(rows[0].address, b[i].donateDate, b[i].birth, b[i].gender, b[i].name, b[i].kind)
                                 await web3.use(req.session.address, a[i])
                             }
-                            return res.send("<script>alert('success')</script>")
+                            return res.send("<script>alert('기부 성공했습니다.');history.go(-1);</script>")
                         })();
                     })
                 })
