@@ -121,7 +121,7 @@ router.post("/", (req, res) => {
                             }
                             conn.query("SELECT * FROM phone WHERE id=? AND isActive=1", [req.body.to], (err, rows, fields) => {
                                 if(rows.length != 0) {
-                                    send_sms(rows[0].phone, "헌혈증이 생성되었습니다.")
+                                    send_sms(rows[0].phone, "헌혈증이 도착했습니다.")
                                 }
                             })
                             return res.send("<script>alert('기부 성공했습니다.');location.href='/';</script>")
