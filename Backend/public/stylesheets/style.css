@@ -240,7 +240,7 @@ Reveal
 .reveal.cd-intro-content h1::after {
   /* this is the animated text */
   content: attr(data-content);
-  position: absolute;
+  position: a solute;
   top: 0;
   left: 0;
   height: 100%;
@@ -1121,4 +1121,9 @@ footer img {
 	margin: 0 auto;
 	width: 40px;
 	height: auto;
+}
+
+
+.button:hover {
+  color: #59b1eb; !important;
 }
