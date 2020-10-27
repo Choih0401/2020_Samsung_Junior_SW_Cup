@@ -63,9 +63,11 @@
               <% count += 1 %>
             <% } %>
         </table>
-        <ul class="pagination justify-content-center">
-          <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/mypage">모두 보기</a></li>
-        </ul>
+        <% if(bloodCerts.length > 5) { %>
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/mypage">모두 보기</a></li>
+          </ul>
+        <% } %>
       </div>
 
       <div class="col-md-6 leafs-package">
@@ -98,9 +100,11 @@
             <% } %>
           </tbody>
         </table>
-        <ul class="pagination justify-content-center">
-          <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/mypage">모두 보기</a></li>
-        </ul>
+        <% if(bloodCerts.length > 5) { %>
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" style="margin-right:5px;" href="/mypage">모두 보기</a></li>
+          </ul>
+        <% } %>
       </div>
 
   </section>
