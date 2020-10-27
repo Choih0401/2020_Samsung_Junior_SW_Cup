@@ -43,7 +43,7 @@ router.post("/board", upload, (req, res) => {
   if(req.file) {
     conn.query("INSERT INTO board (id, name, title, content, img, active) VALUES (?, ?, ?, ?, ?, 1)", [req.session.userid, req.session.name, req.body.title, req.body.content, req.file.filename], (err, rows, fields) => {
       if(err) return res.status(500).json({success: false, err: 1});
-      return res.status(200).json({success: true})
+      res.redirect('/');
     })
   } else {
     conn.query("INSERT INTO board (id, name, title, content, active) VALUES (?, ?, ?, ?, 1)", [req.session.userid, req.session.name, req.body.title, req.body.content], (err, rows, fields) => {
@@ -63,7 +63,9 @@ router.get("/board/:num", (req, res) => {
       return res.status(404).json();
     }
     console.log(rows[0])
-    res.render('read', {board: rows[0], usercookie: req.cookies.user});
+    conn.query("SELECT COUNT(*) AS num FROM user", [], (err, row, fields) => {
+      res.render('read', {board: rows[0], usercookie: req.cookies.user, num: row[0].num});
+    })
     //return res.status(200).json(rows[0]);
   })
 })
