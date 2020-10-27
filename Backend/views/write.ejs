@@ -26,7 +26,7 @@
 <section class="marlies-package">
   <div class="container">
     <h3 class="text-center wow fadeIn" data-wow-delay=".5s">글쓰기</h3>
-    <form action="/api/board" method="post">
+    <form action="/api/board" method="post" enctype="multipart/form-data">
     
         <div class="form-group">
           <label for="title">제목</label>
@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label for="InputSubject1">사진첨부</label>
-            <input id="fileInput" filestyle="" type="file" data-class-button="btn bt
+            <input name="img" id="fileInput" filestyle="" type="file" data-class-button="btn bt
                n-default" data-class-input="form-control" data-button-text="" data-icon-name="fa
                fa-upload" class="form-control" tabindex="-1" style="opacity:0; display: none">
             <div class="bootstrap-filestyle input-group">
