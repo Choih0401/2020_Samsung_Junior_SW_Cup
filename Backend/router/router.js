@@ -8,7 +8,8 @@ const registerRouter = require("./register");
 const indexRouter = require("./index");
 const adminRouter = require("./admin")
 const writeRouter = require("./write")
-const mypageRouter = require("./mypage")
+const unusedRouter = require("./unused")
+const usedRouter = require("./used")
 const giveRouter = require("./give")
 const phoneRouter = require("./phone")
 
@@ -48,7 +49,8 @@ router.use("/give", authCheck, giveRouter);
 router.use("/admin", authCheck, adminRouter);
 router.use("/write", authCheck, writeRouter);
 router.use("/index", authCheck, indexRouter);
-router.use("/mypage", authCheck, mypageRouter);
+router.use("/unused", authCheck, unusedRouter);
+router.use("/used", authCheck, usedRouter);
 router.use("/phone", authCheck, phoneRouter);
 
 module.exports = router;

@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
             console.log("이름: " + req.session.name);
             console.log("개수: " + bloodCerts.length);
             conn.query("SELECT COUNT(*) AS num FROM user", [], (err, rows, fields) => {
-              res.render("unused", {
+              res.render("used", {
                 bloodCerts: bloodCerts,
                 num: rows[0].num
               });
