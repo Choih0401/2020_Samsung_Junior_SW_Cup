@@ -42,8 +42,8 @@ router.get("/:num", (req, res) => {
                 bloodCerts: bloodCerts,
                 name: req.session.name,
                 page: req.params.num,
-                board: rows,
-                num: row[0].num
+                board: row,
+                num: rows[0].num
               });
             })
           })

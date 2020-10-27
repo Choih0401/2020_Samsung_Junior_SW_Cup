@@ -33,8 +33,11 @@ router.get("/", (req, res) => {
             console.log("헌혈증: ", bloodCerts);
             console.log("이름: " + req.session.name);
             console.log("개수: " + bloodCerts.length);
-            res.render("mypage", {
-              bloodCerts: bloodCerts,
+            conn.query("SELECT COUNT(*) AS num FROM user", [], (err, rows, fields) => {
+              res.render("mypage", {
+                bloodCerts: bloodCerts,
+                num: rows[0].num
+              });
             });
           })
         })

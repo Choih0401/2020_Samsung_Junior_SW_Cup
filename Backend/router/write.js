@@ -8,7 +8,11 @@ const web3 = require("../web3/web3");
 db.connect(conn);
 
 router.get("/", (req, res) => {
-  res.render("write");
+  conn.query("SELECT COUNT(*) AS num FROM user", [], (err, rows, fields) => {
+    res.render("write", {
+      num: rows[0].num
+    });
+  })
 });
 
 module.exports = router;

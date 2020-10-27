@@ -63,7 +63,9 @@ router.get("/board/:num", (req, res) => {
       return res.status(404).json();
     }
     console.log(rows[0])
-    res.render('read', {board: rows[0], usercookie: req.cookies.user});
+    conn.query("SELECT COUNT(*) AS num FROM user", [], (err, row, fields) => {
+      res.render('read', {board: rows[0], usercookie: req.cookies.user, num: row[0].num});
+    })
     //return res.status(200).json(rows[0]);
   })
 })
