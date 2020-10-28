@@ -100,13 +100,14 @@ setInterval(() => {
               }
               let address = rows[i].address;
               let phone = rows2[0].phone;
+              let now = parseInt(Date.now() / 1000)
               phonenum = phone;
               web3.getCertByOwner(address, address)
               .then((result) => {
                 getBloodCerts(address, result)
                 .then((bloodCerts) => {
                   for(let j = 0;j < bloodCerts.length;j++) {
-                    if(bloodCerts[i].used == 0) {
+                    if(bloodCerts[i].used == 0 && parseInt(bloodCerts[i].donateDate) + 31536000 < now) {
                       num++;
                     }
                   }
@@ -117,12 +118,12 @@ setInterval(() => {
           })
         })
         if(num != 0) {
-          send_sms(phonenum, "사용하지 않은 헌혈증이 " + num + "개 있습니다.")
+          send_sms(phonenum, "1년 이상 지난 사용하지 않은 헌혈증이 " + num + "개 있습니다.")
         }
       }
     })()
   })
-}, 31536000)
+}, 31536000000)
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
