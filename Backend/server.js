@@ -124,6 +124,42 @@ setInterval(() => {
     })()
   })
 }, 2147483647)
+conn.query("SELECT * FROM user", [], (err, rows, fields) => {
+  (async () => {
+    for(let i = 0;i < rows.length;i++) {
+      let num = 0;
+      let phonenum = "";
+      let id = rows[i].id;
+      let address = rows[i].address
+      await new Promise((resolve, reject) => {
+        conn.query("SELECT * FROM phone WHERE id=?", [id], (err, rows2, fields) => {
+          if(rows2.length == 0) {
+            return resolve();
+          }
+          let phone = rows2[0].phone;
+          let now = parseInt(Date.now() / 1000)
+          phonenum = phone;
+          web3.getCertByOwner(address, address)
+          .then((result) => {
+            getBloodCerts(address, result)
+            .then((bloodCerts) => {
+              for(let j = 0;j < bloodCerts.length;j++) {
+                if(bloodCerts[i].used == 0 && parseInt(bloodCerts[i].donateDate) + 31536000 < now) {
+                  num++;
+                }
+              }
+              return resolve();
+            })
+          })
+        })
+      })
+      if(num != 0) {
+        console.log(phonenum)
+        send_sms(phonenum, "1년 이상 지난 사용하지 않은 헌혈증이 " + num + "개 있습니다.")
+      }
+    }
+  })()
+})
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
